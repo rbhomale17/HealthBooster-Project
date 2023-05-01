@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100%;
+            margin: auto;
+            height: 200px;
+        }
+
+        #outer {
+            width: 90%;
+            margin: auto;
+            box-sizing: border-box;
+        }
+
+        #main {
+            width: 100%;
+            /* margin: auto; */
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 20px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+
+        #container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px 20px;
+            margin: auto;
+            margin-top: 30px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div>
+            <fieldset id="main">
+                <div>
+                    <legend>Filter By Product Category</legend>
+                    <div>
+                        <input type="checkbox" id="vital" name="product" value="Vitals" />
+                        <label for="Vitals">Vitals</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="biotin" name="interest" value="Biotin" />
+                        <label for="Biotin">Biotin</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="proteins" name="interest" value="Whey Proteins" />
+                        <label for="Whey Proteins">Whey Proteins</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="fitness" name="interest" value="Fitness" />
+                        <label for="Fitness">Fitness</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="massGainer" name="interest" value="Mass Gainer" />
+                        <label for="Mass Gainer">Mass Gainer</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="instrument" name="interest" value="instrument" />
+                        <label for="instrument">Instrument</label>
+                    </div>
+                </div>
+                <div>
+                    <legend>Filter By Product Brand</legend>
+                    <div>
+                        <input type="checkbox" id="BPI" name="product" value="BPI" />
+                        <label for="BPI">BPI</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Beurer" name="interest" value="Beurer" />
+                        <label for="Beurer">Beurer</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Dr. Morepen" name="interest" value="Dr. Morepen" />
+                        <label for="Dr. Morepen">Dr. Morepen</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="HealthKart" name="interest" value="HealthKart" />
+                        <label for="HealthKart">HealthKart</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="MB Fuel One" name="interest" value="MB Fuel One" />
+                        <label for="MB Fuel One">MB Fuel One</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="MuscleBlaze" name="interest" value="MuscleBlaze" />
+                        <label for="MuscleBlaze">MuscleBlaze</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Onetouch" name="interest" value="Onetouch" />
+                        <label for="Onetouch">Onetouch</label>
+                    </div>
+                </div>
+                <button>Apply</button>
+                <button id="removefilter">Remove Filter</button>
+            </fieldset>
+
+        </div>
+
+        <div id="container">
+            <!-- product appende here -->
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // category things
+    let vital = document.getElementById("vital");
+    let biotin = document.getElementById("biotin");
+    let fitness = document.getElementById("fitness");
+    let massGainer = document.getElementById("massGainer");
+    let proteins = document.getElementById("proteins");
+    let instrument = document.getElementById("instrument");
+
+    // Brand things
+    let BPI = document.getElementById("BPI");
+    let Beurer = document.getElementById("Beurer");
+    let DrMorepen = document.getElementById("Dr. Morepen");
+    let HealthKart = document.getElementById("HealthKart");
+    let MBFuelOne = document.getElementById("MB Fuel One");
+    let MuscleBlaze = document.getElementById("MuscleBlaze");
+    let Onetouch = document.getElementById("Onetouch");
+
+    // controll button
+    let ApplyButton = document.querySelector("button");
+    let removefilter = document.getElementById("removefilter");
+
+    let c1; let c2; let c3; let c4; let c5; let c6;
+    let b1; let b2; let b3; let b4; let b5; let b6; let b7;
+
+    ApplyButton.addEventListener("click", () => {
+        // category
+        (vital.checked) ? c1 = vital.value : undefined;
+        (biotin.checked) ? c2 = biotin.value : undefined;
+        (fitness.checked) ? c3 = fitness.value : undefined;
+        (massGainer.checked) ? c4 = massGainer.value : undefined;
+        (instrument.checked) ? c5 = instrument.value : undefined;
+        (proteins.checked) ? c6 = proteins.value : undefined;
+        // brand
+        (BPI.checked) ? b1 = BPI.value : undefined;
+        (Beurer.checked) ? b2 = Beurer.value : undefined;
+        (DrMorepen.checked) ? b3 = DrMorepen.value : undefined;
+        (HealthKart.checked) ? b4 = HealthKart.value : undefined;
+        (MBFuelOne.checked) ? b5 = MBFuelOne.value : undefined;
+        (MuscleBlaze.checked) ? b6 = MuscleBlaze.value : undefined;
+        (Onetouch.checked) ? b7 = Onetouch.value : undefined;
+
+        fetchData(c1, c2, c3, c4, c5, c6, b1, b2, b3, b4, b5, b6, b7)
+        c1 = undefined, c2 = undefined, c3 = undefined, c4 = undefined, c5 = undefined, c6 = undefined;
+        b1 = undefined, b2 = undefined, b3 = undefined, b4 = undefined, b5 = undefined, b6 = undefined, b7 = undefined;
+    });
+
+    removefilter.addEventListener("click", () => {
+        c1 = undefined, c2 = undefined, c3 = undefined, c4 = undefined, c5 = undefined, c6 = undefined;
+        b1 = undefined, b2 = undefined, b3 = undefined, b4 = undefined, b5 = undefined, b6 = undefined, b7 = undefined;
+        // e.preventDefault()
+        fetchData(c1, c2, c3, c4, c5, c6, b1, b2, b3, b4, b5, b6, b7)
+    })
+
+    fetchData(c1, c2, c3, c4, c5, c6, b1, b2, b3, b4, b5, b6, b7)
+
+    function fetchData(c1, c2, c3, c4, c5, c6, b1, b2, b3, b4, b5, b6, b7) {
+        // console.log(!c1 && !c2 && !c3 && !c4 && !c5 && !c6);
+        if (!c1 && !c2 && !c3 && !c4 && !c5 && !c6 && !b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7) {
+            fetch(`http://localhost:4500/products/`).then((res) => res.json()).then((res) => {
+                display(res.products)
+            }).catch((err) => {
+                console.log(err);
+            });
+        } else if ((c1 || c2 || c3 || c4 || c5 || c6) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7)) {
+            fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}`).then((res) => res.json()).then((res) => {
+                display(res.products)
+            }).catch((err) => {
+                console.log(err);
+            });
+        } else if ((b1 || b2 || b3 || b4 || b5 || b6 || b7) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6)) {
+            fetch(`http://localhost:4500/products/?brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
+                display(res.products)
+            }).catch((err) => {
+                console.log(err);
+            });
+        } else if (c1 || c2 || c3 || c4 || c5 || c6 || b1 || b2 || b3 || b4 || b5 || b6 || b7) {
+            fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
+                display(res.products)
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+    }
+
+    let container = document.getElementById("container");
+    // display(product)
+    function display(data) {
+        let brand = {};
+        let category = {};
+        container.innerHTML = null;
+        data.forEach(element => {
+            if (brand[element.brand] == undefined) {
+                brand[element.brand] = 1;
+            } else {
+                brand[element.brand]++;
+            }
+            if (category[element.category] == undefined) {
+                category[element.category] = 1;
+            } else {
+                category[element.category]++;
+            }
+            let card = document.createElement("div");
+            let title = document.createElement("p");
+            let price = document.createElement("p");
+            let img = document.createElement("img");
+            let quantity = document.createElement("p");
+            let category1 = document.createElement("P");
+            category1.textContent = element.category;
+            quantity.textContent = element.quantity;
+            img.setAttribute("src", element.img);
+            price.textContent = element.price;
+            title.textContent = element.title;
+
+            card.append(img, title, price, quantity, category1);
+            container.append(card);
+        });
+        console.log("Brand", brand);
+        console.log("category", category);
+    }
+
+</script>

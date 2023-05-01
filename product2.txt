@@ -1,0 +1,124 @@
+{
+ "selection1": [
+  {
+   "name": "Dr. Morepen Gluco One Bg 03 Glucometer T...",
+   "url": "https://pharmeasy.in/health-care/products/dr-morepen-gluco-one-bg-03-glucometer-test-strips-box-of-50-172151",
+   "selection2": "₹679.20",
+   "selection2_url": "https://pharmeasy.in/health-care/products/dr-morepen-gluco-one-bg-03-glucometer-test-strips-box-of-50-172151"
+  },
+  {
+   "name": "Accu-Chek Active Glucometer Test Strips Box Of 50",
+   "url": "https://pharmeasy.in/health-care/products/accu-chek-active-glucometer-test-strips-box-of-50-172157",
+   "selection2": "₹923.96",
+   "selection2_url": "https://pharmeasy.in/health-care/products/accu-chek-active-glucometer-test-strips-box-of-50-172157"
+  },
+  {
+   "name": "Pharmeasy Digital Weighing Machine For B...",
+   "url": "https://pharmeasy.in/health-care/products/pharmeasy-digital-weighing-machine-for-body-weight-with-lcd-display-tempered-glass-3611152",
+   "selection2": "₹779.48",
+   "selection2_url": "https://pharmeasy.in/health-care/products/pharmeasy-digital-weighing-machine-for-body-weight-with-lcd-display-tempered-glass-3611152"
+  },
+  {
+   "name": "Finishing Touch Flawless Brows Eyebrow H...",
+   "url": "https://pharmeasy.in/health-care/products/finishing-touch-flawless-brows-eyebrow-hair-remover-3053897",
+   "selection2": "MRP ₹2500.00",
+   "selection2_url": "https://pharmeasy.in/health-care/products/finishing-touch-flawless-brows-eyebrow-hair-remover-3053897"
+  },
+  {
+   "name": "Accu-Chek Active Glucometer Test Strips ...",
+   "url": "https://pharmeasy.in/health-care/products/accu-chek-active-glucometer-test-strips-box-of-100-172158",
+   "selection2": "₹1571.65",
+   "selection2_url": "https://pharmeasy.in/health-care/products/accu-chek-active-glucometer-test-strips-box-of-100-172158"
+  },
+  {
+   "name": "Pharmeasy Pill Box Organizer",
+   "url": "https://pharmeasy.in/health-care/products/pharmeasy-pill-box-organizer-234116",
+   "selection2": "₹299.40",
+   "selection2_url": "https://pharmeasy.in/health-care/products/pharmeasy-pill-box-organizer-234116"
+  },
+  {
+   "name": "Contour Plus Glucometer Test Strips Box Of 50",
+   "url": "https://pharmeasy.in/health-care/products/contour-plus-glucometer-test-strips-box-of-50-4461",
+   "selection2": "₹979.02",
+   "selection2_url": "https://pharmeasy.in/health-care/products/contour-plus-glucometer-test-strips-box-of-50-4461"
+  },
+  {
+   "name": "Dr Morepen Bg 03 Glucometer Test Strips Box Of 25",
+   "url": "https://pharmeasy.in/health-care/products/dr-morepen-bg-03-glucometer-test-strips-box-of-25-178456",
+   "selection2": "₹409.18",
+   "selection2_url": "https://pharmeasy.in/health-care/products/dr-morepen-bg-03-glucometer-test-strips-box-of-25-178456"
+  },
+  {
+   "name": "Onetouch Select Plus Glucometer Test Str...",
+   "url": "https://pharmeasy.in/health-care/products/one-touch-select-plus-glucometer-test-strips-box-of-50-230432",
+   "selection2": "₹1133.55",
+   "selection2_url": "https://pharmeasy.in/health-care/products/one-touch-select-plus-glucometer-test-strips-box-of-50-230432"
+  },
+  {
+   "name": "Coviself Covid Self Test Kit",
+   "url": "https://pharmeasy.in/health-care/products/coviself-covid-self-test-kit-3135791",
+   "selection2": "₹235.00",
+   "selection2_url": "https://pharmeasy.in/health-care/products/coviself-covid-self-test-kit-3135791"
+  },
+  {
+   "name": "Dr Morepen Bg 03 Glucometer Kit (With 25 Strips)",
+   "url": "https://pharmeasy.in/health-care/products/dr-morepen-bg-03-glucometer-kit-with-free-25-strips--172150",
+   "selection2": "₹989.40",
+   "selection2_url": "https://pharmeasy.in/health-care/products/dr-morepen-bg-03-glucometer-kit-with-free-25-strips--172150"
+  },
+  {
+   "name": "Pharmeasy Digital Thermometer",
+   "url": "https://pharmeasy.in/health-care/products/pharmeasy-digital-thermometer-3841744",
+   "selection2": "₹151.25",
+   "selection2_url": "https://pharmeasy.in/health-care/products/pharmeasy-digital-thermometer-3841744"
+  },
+  {
+   "name": "Accu-Chek Active Glucometer Kit (With Fr...",
+   "url": "https://pharmeasy.in/health-care/products/accu-chek-active-glucometer-kit-with-free-10-strips--172155",
+   "selection2": "₹859.14",
+   "selection2_url": "https://pharmeasy.in/health-care/products/accu-chek-active-glucometer-kit-with-free-10-strips--172155"
+  },
+  {
+   "name": "Accu Check Instant 100 Test Strips",
+   "url": "https://pharmeasy.in/health-care/products/accu-check-instant-100-test-strips-3650793",
+   "selection2": "₹1298.00",
+   "selection2_url": "https://pharmeasy.in/health-care/products/accu-check-instant-100-test-strips-3650793"
+  },
+  {
+   "name": "Dr. Morepen Bp-02 Blood Pressure Monitor",
+   "url": "https://pharmeasy.in/health-care/products/dr-morepen-bp-one-bp-02-bp-monitor-208347",
+   "selection2": "₹1236.75",
+   "selection2_url": "https://pharmeasy.in/health-care/products/dr-morepen-bp-one-bp-02-bp-monitor-208347"
+  },
+  {
+   "name": "Accu-Chek Active 100 Strips (50x2) With ...",
+   "url": "https://pharmeasy.in/health-care/products/accu-chek-active-100-strips-50x2-with-free-25-lancets-3121359",
+   "selection2": "₹1571.65",
+   "selection2_url": "https://pharmeasy.in/health-care/products/accu-chek-active-100-strips-50x2-with-free-25-lancets-3121359"
+  },
+  {
+   "name": "Beurer Ft 09/1 Clinical Thermometer",
+   "url": "https://pharmeasy.in/health-care/products/beurer-ft-09-1-clinical-thermometer-3011941",
+   "selection2": "₹235.00",
+   "selection2_url": "https://pharmeasy.in/health-care/products/beurer-ft-09-1-clinical-thermometer-3011941"
+  },
+  {
+   "name": "Liveasy Essentials All In One Vaporizer",
+   "url": "https://pharmeasy.in/health-care/products/liveasy-essentials-all-in-one-vaporizer--2935934",
+   "selection2": "MRP ₹449.00",
+   "selection2_url": "https://pharmeasy.in/health-care/products/liveasy-essentials-all-in-one-vaporizer--2935934"
+  },
+  {
+   "name": "Bpl Smart Oxy Finger Tip Pulse Black Oxi...",
+   "url": "https://pharmeasy.in/health-care/products/bpl-smart-oxy-finger-tip-pulse-black-oximeter-black--233438",
+   "selection2": "₹3060.00",
+   "selection2_url": "https://pharmeasy.in/health-care/products/bpl-smart-oxy-finger-tip-pulse-black-oximeter-black--233438"
+  },
+  {
+   "name": "Accu-Chek Active Glucometer Test Strips ...",
+   "url": "https://pharmeasy.in/health-care/products/accu-chek-active-glucometer-test-strips-strip-of-25-32714",
+   "selection2": "₹741.51",
+   "selection2_url": "https://pharmeasy.in/health-care/products/accu-chek-active-glucometer-test-strips-strip-of-25-32714"
+  }
+ ]
+}
