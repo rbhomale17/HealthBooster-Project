@@ -103,14 +103,79 @@
                         <label for="Onetouch">Onetouch</label>
                     </div>
                 </div>
+                <div>
+                    <legend>Filter By Product Rating</legend>
+                    <!-- <div> -->
+                    <!-- <input type="checkbox" id="abovefour" name="product" value="4" /> -->
+                    <!-- <label for="4">.</label> -->
+                    <!-- </div> -->
+                    <select name="" id="rating">
+                        <option value="">Select Rating</option>
+                        <option value="4">Rating Above 4</option>
+                        <option value="3">Rating Above 3</option>
+                        <option value="2">Rating Above 2</option>
+                        <option value="1">Rating Above 1</option>
+                    </select>
+                </div>
+                <div>
+                    <legend>Filter By Product Price</legend>
+                    <!-- <div>
+                        <input type="checkbox" id="abovefour" name="product" value="4" />
+                        <label for="4">.</label> -->
+                    <!-- </div> -->
+                    <select name="" id="price">
+                        <option value="">Select Price</option>
+                        <option value="2000">Price Below ₹ 2000</option>
+                        <option value="1500">Price Below ₹ 1500</option>
+                        <option value="1000">Price Below ₹ 1000</option>
+                        <option value="500">Price Below ₹ 500</option>
+                    </select>
+                </div>
+
+                <div>
+                    <!-- <legend>Sort The Product</legend> -->
+                    <!-- <div> -->
+                    <!-- <input type="checkbox" id="abovefour" name="product" value="4" /> -->
+                    <!-- <label for="4">.</label> -->
+                    <!-- </div> -->
+                    <!-- <select name="" id="sort">
+                        <option value="">Select Sort</option>
+                        <option value="2000">Price Below ₹ 2000</option>
+                        <option value="1500">Price Below ₹ 1500</option>
+                        <option value="1000">Price Below ₹ 1000</option>
+                        <option value="500">Price Below ₹ 500</option>
+                    </select> -->
+                </div>
+                <div>
+                    <!-- <legend>Filter By Product Price</legend> -->
+                    <div>
+                        <!-- <input type="checkbox" id="abovefour" name="product" value="4" /> -->
+                        <!-- <label for="4">.</label> -->
+                    </div>
+                    <!-- <select name="" id="price">
+                        <option value="">Select Price</option>
+                        <option value="2000">Price Below ₹ 2000</option>
+                        <option value="1500">Price Below ₹ 1500</option>
+                        <option value="1000">Price Below ₹ 1000</option>
+                        <option value="500">Price Below ₹ 500</option>
+                    </select> -->
+                </div>
                 <button>Apply</button>
                 <button id="removefilter">Remove Filter</button>
             </fieldset>
-
+            <!-- <script>
+                let lessthan2000 = document.getElementById("lessthan2000");
+                let lessthan1500 = document.getElementById("lessthan1500");
+                let lessthan1000 = document.getElementById("lessthan1000");
+                let lessthan500 = document.getElementById("lessthan500");
+            </script> -->
         </div>
 
         <div id="container">
             <!-- product appende here -->
+        </div>
+        <div id="pagination">
+            <!-- pagination here -->
         </div>
     </div>
 </body>
@@ -138,9 +203,12 @@
     let ApplyButton = document.querySelector("button");
     let removefilter = document.getElementById("removefilter");
 
+
+
     let c1; let c2; let c3; let c4; let c5; let c6;
     let b1; let b2; let b3; let b4; let b5; let b6; let b7;
-
+    // let rating = undefined; 
+    // let price = undefined;
     ApplyButton.addEventListener("click", () => {
         // category
         (vital.checked) ? c1 = vital.value : undefined;
@@ -158,43 +226,236 @@
         (MuscleBlaze.checked) ? b6 = MuscleBlaze.value : undefined;
         (Onetouch.checked) ? b7 = Onetouch.value : undefined;
 
-        fetchData(c1, c2, c3, c4, c5, c6, b1, b2, b3, b4, b5, b6, b7)
+        let rating = document.getElementById("rating").value;
+        // console.log(rating);
+        let price = document.getElementById("price").value;
+        // console.log(price);
+
+        fetchData(c1, c2, c3, c4, c5, c6, b1, b2, b3, b4, b5, b6, b7, rating, price)
         c1 = undefined, c2 = undefined, c3 = undefined, c4 = undefined, c5 = undefined, c6 = undefined;
         b1 = undefined, b2 = undefined, b3 = undefined, b4 = undefined, b5 = undefined, b6 = undefined, b7 = undefined;
+        rating = undefined; price = undefined;
     });
 
     removefilter.addEventListener("click", () => {
         c1 = undefined, c2 = undefined, c3 = undefined, c4 = undefined, c5 = undefined, c6 = undefined;
         b1 = undefined, b2 = undefined, b3 = undefined, b4 = undefined, b5 = undefined, b6 = undefined, b7 = undefined;
+        rating = undefined;
         // e.preventDefault()
-        fetchData(c1, c2, c3, c4, c5, c6, b1, b2, b3, b4, b5, b6, b7)
+        fetchData();//c1, c2, c3, c4, c5, c6, b1, b2, b3, b4, b5, b6, b7, rating
+        document.location.reload();
     })
 
-    fetchData(c1, c2, c3, c4, c5, c6, b1, b2, b3, b4, b5, b6, b7)
+    window.addEventListener("load", () => {
+        fetchData()
+    })
+    let page = 1;
+    function createbtn(page, id, query) {
+        let button = document.createElement("button");
+        button.setAttribute("data-id", id);
+        button.textContent = page;
+        button.addEventListener("click", (e) => {
+            page = e.target.dataset.id;
+            fetchDataAfterPagination(page, query)
+            // console.log(e.target.dataset.id,query)
+        })
+        return button
+    }
+    function fetchDataAfterPagination(page, query) {
+        // console.log(page);
+        fetch(`http://localhost:4500/products/?page=${page}&limit=12&${query}`).then((res) => res.json()).then((res) => {
+            console.log(res.products);
+            display(res.products)
+        })
+    }
 
-    function fetchData(c1, c2, c3, c4, c5, c6, b1, b2, b3, b4, b5, b6, b7) {
+    function fetchData(c1, c2, c3, c4, c5, c6, b1, b2, b3, b4, b5, b6, b7, rating, price) {
         // console.log(!c1 && !c2 && !c3 && !c4 && !c5 && !c6);
-        if (!c1 && !c2 && !c3 && !c4 && !c5 && !c6 && !b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7) {
+        // pagination
+        let pagination = document.getElementById("pagination");
+
+        if (!c1 && !c2 && !c3 && !c4 && !c5 && !c6 && !b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !rating && !price) {
             fetch(`http://localhost:4500/products/`).then((res) => res.json()).then((res) => {
-                display(res.products)
+                let length = res.products.length;
+                console.log(page)
+                let total = Math.ceil(length / 12);
+                pagination.innerHTML = null;
+                for (let i = 1; i <= total; i++) {
+                    pagination.append(createbtn(i, i, ``))
+                }
+                let diff = length - 12;
+                let arr = res.products.slice(diff)
+                display(arr)
+                // display(res.products)
             }).catch((err) => {
                 console.log(err);
             });
-        } else if ((c1 || c2 || c3 || c4 || c5 || c6) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7)) {
+        } else if (rating && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !c1 && !c2 && !c3 && !c4 && !c5 && !c6 && !price)) {
+            // console.log(b1, b2, b3, b4, b5, b6, b7, rating, price);
+            fetch(`http://localhost:4500/products/?rating=${rating}`).then((res) => res.json()).then((res) => {
+                let length = res.products.length;
+                // console.log(page)
+                let total = Math.ceil(length / 12);
+                pagination.innerHTML = null;
+                for (let i = 1; i <= total; i++) {
+                    pagination.append(createbtn(i, i, `rating=${rating}`))
+                }
+                let diff = length - 12;
+                let arr = res.products.slice(diff)
+                display(arr)
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+        else if ((c1 || c2 || c3 || c4 || c5 || c6) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7) && (!rating) && !price) {
             fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}`).then((res) => res.json()).then((res) => {
-                display(res.products)
+                let length = res.products.length;
+                //console.log(page)
+                let total = Math.ceil(length / 12);
+                pagination.innerHTML = null;
+                for (let i = 1; i <= total; i++) {
+                    pagination.append(createbtn(i, i, `category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}`))
+                }
+                let diff = length - 12;
+                let arr = res.products.slice(diff)
+                display(arr)
+                // display(res.products)
             }).catch((err) => {
                 console.log(err);
             });
-        } else if ((b1 || b2 || b3 || b4 || b5 || b6 || b7) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6)) {
+        } else if ((b1 || b2 || b3 || b4 || b5 || b6 || b7) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6) && (!rating) && !price) {
             fetch(`http://localhost:4500/products/?brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
-                display(res.products)
+                let length = res.products.length;
+                // console.log(page)
+                let total = Math.ceil(length / 12);
+                pagination.innerHTML = null;
+                for (let i = 1; i <= total; i++) {
+                    pagination.append(createbtn(i, i, `brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`))
+                }
+                let diff = length - 12;
+                let arr = res.products.slice(diff)
+                display(arr)
+                // display(res.products)
             }).catch((err) => {
                 console.log(err);
             });
-        } else if (c1 || c2 || c3 || c4 || c5 || c6 || b1 || b2 || b3 || b4 || b5 || b6 || b7) {
-            fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
-                display(res.products)
+        }
+        else if ((c1 || c2 || c3 || c4 || c5 || c6 || rating) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !price)) {
+            fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&rating=${rating}`).then((res) => res.json()).then((res) => {
+                let length = res.products.length;
+                // console.log(page)
+                let total = Math.ceil(length / 12);
+                pagination.innerHTML = null;
+                for (let i = 1; i <= total; i++) {
+                    pagination.append(createbtn(i, i, `category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&rating=${rating}`))
+                }
+                let diff = length - 12;
+                let arr = res.products.slice(diff)
+                display(arr)
+                // display(res.products)
+            }).catch((err) => {
+                console.log(err);
+            });
+        } else if ((price || rating) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !c1 && !c2 && !c3 && !c4 && !c5)) {
+            fetch(`http://localhost:4500/products/?rating=${rating}&price=${price}`).then((res) => res.json()).then((res) => {
+                let length = res.products.length;
+                // console.log(page)
+                let total = Math.ceil(length / 12);
+                pagination.innerHTML = null;
+                for (let i = 1; i <= total; i++) {
+                    pagination.append(createbtn(i, i, `rating=${rating}&price=${price}`))
+                }
+                let diff = length - 12;
+                let arr = res.products.slice(diff)
+                display(arr)
+                // display(res.products)
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+        else if ((rating || b1 || b2 || b3 || b4 || b5 || b6 || b7) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6 && !price)) {
+            // console.log(b1, b2, b3, b4, b5, b6, b7, rating);
+            fetch(`http://localhost:4500/products/?rating=${rating}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
+                let length = res.products.length;
+                // console.log(page)
+                let total = Math.ceil(length / 12);
+                pagination.innerHTML = null;
+                for (let i = 1; i <= total; i++) {
+                    pagination.append(createbtn(i, i, `rating=${rating}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`))
+                }
+                let diff = length - 12;
+                let arr = res.products.slice(diff)
+                display(arr)
+                // display(res.products)
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+        else if ((rating || b1 || b2 || b3 || b4 || b5 || b6 || b7 || price) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6)) {
+            console.log(b1, b2, b3, b4, b5, b6, b7, rating, "XXX", price);
+            fetch(`http://localhost:4500/products/?brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}&price=${price}&rating=${rating}`).then((res) => res.json()).then((res) => {
+                let length = res.products.length;
+                // console.log(page)
+                let total = Math.ceil(length / 12);
+                pagination.innerHTML = null;
+                for (let i = 1; i <= total; i++) {
+                    pagination.append(createbtn(i, i, `brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}&price=${price}&rating=${rating}`))
+                }
+                let diff = length - 12;
+                let arr = res.products.slice(diff)
+                display(arr)
+                // display(res.products)
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+        else if ((c1 || c2 || c3 || c4 || c5 || c6 || price) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !rating)) {
+            fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&price=${price}`).then((res) => res.json()).then((res) => {
+                let length = res.products.length;
+                // console.log(page)
+                let total = Math.ceil(length / 12);
+                pagination.innerHTML = null;
+                for (let i = 1; i <= total; i++) {
+                    pagination.append(createbtn(i, i, `category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&price=${price}`))
+                }
+                let diff = length - 12;
+                let arr = res.products.slice(diff)
+                display(arr)
+                // display(res.products)
+            }).catch((err) => {
+                console.log(err);
+            });
+        } else if ((price || b1 || b2 || b3 || b4 || b5 || b6 || b7) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6 && !rating)) {
+            // console.log(b1, b2, b3, b4, b5, b6, b7, rating);
+            fetch(`http://localhost:4500/products/?price=${price}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
+                let length = res.products.length;
+                // console.log(page)
+                let total = Math.ceil(length / 12);
+                pagination.innerHTML = null;
+                for (let i = 1; i <= total; i++) {
+                    pagination.append(createbtn(i, i, `price=${price}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`))
+                }
+                let diff = length - 12;
+                let arr = res.products.slice(diff)
+                display(arr)
+                // display(res.products)
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+        else if (c1 || c2 || c3 || c4 || c5 || c6 || b1 || b2 || b3 || b4 || b5 || b6 || b7 || rating || price) {
+            fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}&rating=${rating}&price=${price}`).then((res) => res.json()).then((res) => {
+                let length = res.products.length;
+                // console.log(page)
+                let total = Math.ceil(length / 12);
+                pagination.innerHTML = null;
+                for (let i = 1; i <= total; i++) {
+                    pagination.append(createbtn(i, i, `category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}&rating=${rating}&price=${price}`))
+                }
+                let diff = length - 12;
+                let arr = res.products.slice(diff)
+                display(arr)
+                // display(res.products)
             }).catch((err) => {
                 console.log(err);
             });
@@ -225,12 +486,14 @@
             let quantity = document.createElement("p");
             let category1 = document.createElement("P");
             category1.textContent = element.category;
+            let rating1 = document.createElement("P");
+            rating1.textContent = element.rating;
             quantity.textContent = element.quantity;
             img.setAttribute("src", element.img);
             price.textContent = element.price;
             title.textContent = element.title;
 
-            card.append(img, title, price, quantity, category1);
+            card.append(img, title, price, quantity, category1, rating1);
             container.append(card);
         });
         console.log("Brand", brand);
@@ -238,3 +501,37 @@
     }
 
 </script>
+
+<!-- else if ((c1 || c2 || c3 || c4 || c5 || c6) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7) && (!r1 && !r2 && !r3 && !r4)) {
+    fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}`).then((res) => res.json()).then((res) => {
+        display(res.products)
+    }).catch((err) => {
+        console.log(err);
+    });
+} else if ((b1 || b2 || b3 || b4 || b5 || b6 || b7) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6) && (!r1 && !r2 && !r3 && !r4) ) {
+    fetch(`http://localhost:4500/products/?brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
+        display(res.products)
+    }).catch((err) => {
+        console.log(err);
+    });
+} 
+else if ((c1 || c2 || c3 || c4 || c5 || c6 || r1 || r2 || r3 || r4) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7)) {
+    fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&rating=${r1}&rating=${r2}&rating=${r3}&rating=${r4}`).then((res) => res.json()).then((res) => {
+        display(res.products)
+    }).catch((err) => {
+        console.log(err);
+    });
+}else if (( r1 || r2 || r3 || r4 || b1 || b2 || b3 || b4 || b5 || b6 || b7) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6)) {
+    fetch(`http://localhost:4500/products/?rating=${r1}&rating=${r2}&rating=${r3}&rating=${r4}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
+        display(res.products)
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+else if (c1 || c2 || c3 || c4 || c5 || c6 || b1 || b2 || b3 || b4 || b5 || b6 || b7 || r1 || r2 || r3 || r4) {
+    fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}&rating=${r1}&rating=${r2}&rating=${r3}&rating=${r4}`).then((res) => res.json()).then((res) => {
+        display(res.products)
+    }).catch((err) => {
+        console.log(err);
+    });
+} -->
