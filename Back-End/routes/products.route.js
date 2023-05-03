@@ -1,6 +1,7 @@
 const express = require("express");
 const { AdminAuthorizationMiddleware } = require("../middlewares/AdminAuthorization.middleware");
 const { ProductModel } = require("../models/product.model");
+const { AfterAddCartQuantity } = require("../middlewares/UserAuthorization.middleware");
 require('dotenv').config();
 const productRouter = express.Router();
 
@@ -16,14 +17,21 @@ productRouter.post("/add", AdminAuthorizationMiddleware, async (req, res) => {
     }
 });
 
-// Product Update Routes
+// Product Update Routes Admin
 productRouter.patch("/update/:id", AdminAuthorizationMiddleware, async (req, res) => {
     const { id } = req.params;
     await ProductModel.findByIdAndUpdate({ _id: id }, req.body);
     res.send({ msg: `Product: ${req.body.title} is updated.` })
 });
 
-// Product Delete Route
+// quantity update After add to cart
+productRouter.patch("/updateAfterAddCart/:id",AfterAddCartQuantity, async (req, res) => {
+    const { id } = req.params;
+    await ProductModel.findByIdAndUpdate({ _id: id }, req.body);
+    res.send({ msg: `Product: ${req.body.title} is updated.` })
+});
+
+// Product Delete Route for admin
 productRouter.delete("/delete/:id", AdminAuthorizationMiddleware, async (req, res) => {
     const { id } = req.params;
     try {
@@ -43,7 +51,7 @@ productRouter.get("/", async (req, res) => {
     if (page && limit) {
         let p = +page;
         let l = +limit;
-        let skipped = (p*l - l);
+        let skipped = (p * l - l);
         if (!category && !brand && !rating && !price && !quantity && !sortprice && !sortrating) {
             let products = await ProductModel.find().skip().skip(skipped).limit(l);//all
             res.send({ products: products });
@@ -453,7 +461,7 @@ productRouter.get("/", async (req, res) => {
                     "title": "MuscleBlaze Super Gainer XXL Powder, 5 kg (11 lb), Chocolate",
                     "brand": "Muscleblaze",
                     "rating": 4.4,
-                    "category":"Biotin",
+                    "category": "Biotin",
                     "price": 3599,
                     "img": "https://img4.hkrtcdn.com/12151/prd_1215013-MuscleBlaze-Super-Gainer-XXL-OP-11-lb-Chocolate_o.jpg",
                     "quantity": 120

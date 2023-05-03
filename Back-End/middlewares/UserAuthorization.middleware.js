@@ -44,7 +44,17 @@ const UserAuthorizationMiddleware = (req,res,next)=>{
     }
 };
 
+const AfterAddCartQuantity = (req,res,next)=>{
+    const {quantity} = req.body;
+    if(req.method == "PATCH"){
+        if(quantity >= 0){
+            next();
+        }
+    }
+};
+
 
 module.exports  = {
-    UserAuthorizationMiddleware
+    UserAuthorizationMiddleware,
+    AfterAddCartQuantity
 }
