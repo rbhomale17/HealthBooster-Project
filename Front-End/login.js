@@ -91,7 +91,7 @@ function loginUser() {
 // redirecting to dashboard
 
 function redirectToHome() {
-    location.href = "./home.html"
+    location.href = "./product.html"
 };
 function redirectToAdmin() {
     location.href = "./admin.html"

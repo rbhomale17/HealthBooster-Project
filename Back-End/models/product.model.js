@@ -7,7 +7,7 @@ const ProductSchema = mongoose.Schema({
   "rating": { type: Number, required: true, default: 2.8, min: 0.1, max: 5.1 },
   "price": { type: Number, required: true, default: 389 },
   "img": { type: String, default: "https://img10.hkrtcdn.com/13665/prd_1366409-MuscleBlaze-Ayurveda-for-Performance-Ashwagandha-500mg-60-tablets_o.jpg" },
-  "quantity": { type: Number, required: true, min: 2, default: 16 }
+  "quantity": { type: Number, required: true, min: 0, default: 10 }
 }, { versionKey: false });
 
 const ProductModel = mongoose.model("product", ProductSchema);
