@@ -29,8 +29,8 @@ userRouter.post("/login",loginMiddleware,async (req,res)=>{
     const {email} = req.body;
     const user = await UserModel.findOne({email})
     try {
-        const token = jwt.sign({ userID: user._id, role:user.role }, process.env.jwt_secret_key, { expiresIn: "4h" });//{ expiresIn: 60*60*4 } for foour hour
-        res.send({msg:`Welcome!, ${user.name} Your Login is Successfully.`,token:token, userId:user._id, role:user.role})
+        const token = jwt.sign({ userID: user._id, role:user.role }, process.env.jwt_secret_key, { expiresIn: "24h" });//{ expiresIn: 60*60*4 } for foour hour
+        res.send({msg:`Welcome!, ${user.name} Your Login is Successfully.`,token:token, userId:user._id, role:user.role,name:user.name})
     } catch (error) {
         res.send({err:error.message})
     }
