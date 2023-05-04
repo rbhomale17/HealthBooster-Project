@@ -81,8 +81,8 @@ function loginUser() {
             alert(`${data.msg}`);
            sessionStorage.setItem("token",JSON.stringify(data));
            if(data.role == "Explorer") alert("Redirecting to Home Page"), redirectToHome();
-           else if(data.role == "Admin") alert("Redirecting to Admin Page"), redirectToAdmin();
-           else location.href = "./signup.html"
+           else if(data.role == "Admin") alert("Redirecting to Admin Dashboard"), redirectToAdmin();
+           else alert("Redirecting to Sign up Page") ,location.href = "./signup.html"
             // alert("Redirecting to Login Page");
             // redirectToLogin();
         })
@@ -91,7 +91,7 @@ function loginUser() {
 // redirecting to dashboard
 
 function redirectToHome() {
-    location.href = "./product.html"
+    location.href = "./index.html"
 };
 function redirectToAdmin() {
     location.href = "./admin.html"

@@ -60,7 +60,7 @@ wishlistRouter.delete("/delete/:id", UserAuthorizationMiddleware, async (req, re
             });
             wishlist = await UserModel.findByIdAndUpdate({ _id: req.body.userID }, wishlist).populate("wishlist");
             let wishlistList = await UserModel.findById({ _id: req.body.userID }).populate("wishlist");
-            res.send({ msg: "Product Deleted From Cart.", wishlist: wishlistList.wishlist })
+            res.send({ msg: "Product Deleted From wishlist.", wishlist: wishlistList.wishlist })
         } else {
             res.send({ msg: "Product Not Found" })
         }
