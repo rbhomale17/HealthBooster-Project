@@ -8,7 +8,6 @@ const cartRouter = express.Router();
 // Show Cart items Routes
 cartRouter.get("/", UserAuthorizationMiddleware, async (req, res) => {
     let cart = await UserModel.findById({ _id: req.body.userID }).populate("cart");
-    // console.log(todos);
     res.send({ cart: cart.cart });
 });
 
@@ -57,8 +56,10 @@ cartRouter.delete("/delete/:id", UserAuthorizationMiddleware, async (req, res) =
                 return true;
             }
         });
-        cart = await UserModel.findByIdAndUpdate({ _id: req.body.userID }, cart).populate("cart");
-        res.send({ msg: "Product Deleted From Cart." })
+        await UserModel.findByIdAndUpdate({ _id: req.body.userID }, cart).populate("cart");
+        cart = await UserModel.findById({ _id: req.body.userID }).populate("cart");
+        
+        res.send({ msg: `Product ${product.title} is Deleted From Cart.` })
     }else{
         res.send({msg:"Product Not Found"})
     }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HelthBooster -project code: moral-riddle-2098, owner: Rushikesh Bhomale</title>
+    <title>HelthBooster -Product Page</title>
     <link rel="icon" href="./titleLogo.jpg" type="image/icon type">
     <meta charset="UTF-8">
     <meta property="og:title" content="HelathBooster.com">
@@ -88,7 +88,7 @@
         } 
     </style>-->
     <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./product.css">
+    <link rel="stylesheet" href="./styles/product.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -117,10 +117,10 @@
                 </div>
                 <a class="wish" href="./wishlist.html">
                     <h4 id="wishlistCounter">0</h4> <i class="fa-regular fa-heart"></i> Wishlist
-                  </a>
-                  <a class="wish" href="/Cart.html">
+                </a>
+                <a class="wish" href="./Cart.html">
                     <h4 id="cartCounter">0</h4> <i class="fa-solid fa-cart-shopping"></i>Cart
-                  </a>
+                </a>
             </div>
         </div>
         <div class="bottom-nav">
@@ -334,7 +334,7 @@
 </body>
 
 </html>
-<script src="./product.js"></script>
+<script src="./scripts/product.js"></script>
 <!-- <script>
     // fetching Session Storage 
     var saveToken = JSON.parse(sessionStorage.getItem("token")) || {};
@@ -814,7 +814,7 @@
         signup_div.innerHTML = ` <div class="dropdown">
        <a href="#" id="sign-in"><i class="fa fa-user"></i> ${saveToken.name}</a>
        <div class="dropdown-content">
-         <a href="">My Orders</a>
+        <a href="./myorder.html">My Orders</a>
          <a onclick="logout()">Log out</a>
        </div>
      </div>`

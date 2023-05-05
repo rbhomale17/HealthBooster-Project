@@ -2,6 +2,16 @@
 
 // session storage for token
 var saveToken = JSON.parse(sessionStorage.getItem("token"));
+
+let container = document.getElementById("container");
+
+if (!saveToken) {
+    // alert("Please Log in First")
+    container.innerHTML = null;
+    container.innerHTML = `<h3> Please Log in First</h3>`
+}
+
+
 var wishlistCounter = document.getElementById("wishlistCounter");
 var cartCounter = document.getElementById("cartCounter");
 // console.log(cartCounter);
@@ -19,14 +29,13 @@ function fetchCartLength() {
         }
     })
         .then((res) => res.json()).then((res) => {
-            console.log(res.cart);
+            // console.log(res.cart);
             let length = res.cart.length;
             cartCounter.innerText = length;
         }).catch((err) => {
             console.log(err);
         })
 };
-
 
 function fetchWishlistLength() {
     // console.log("HIII");
@@ -45,27 +54,36 @@ function fetchWishlistLength() {
         })
 };
 
-window.addEventListener("load", () => {
-    fetchData();
-})
+window.addEventListener("load", () => fetchData())
 
 function fetchData() {
-    fetch(`http://localhost:4500/wishlist/`, {
+    fetch(`http://localhost:4500/myorder/`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${saveToken.token}`
         }
     }).then((res) => res.json()).then((res) => {
-        console.log(res.wishlist)
-        if(res.wishlist.length == 0){
-            container.innerHTML = `<h3>Your Wishlist is Empty.</h3>`
+        // console.log(res)
+        if (res.orders.length == 0) {
+            container.innerHTML = `<h3>Orders Not Available</h3>`
             return;
         }
-        getCardList(res.wishlist)
+        let orders = [];
+        for (let i = 0; i < res.orders.length; i++) {
+            for (let j = 0; j < res.orders[i].orders.length; j++) {
+                // console.log(res.orders[i]);
+                res.orders[i].orders[j].status = res.orders[i].status;
+                res.orders[i].orders[j].date = res.orders[i].date;
+                orders.push(res.orders[i].orders[j])
+            }
+        }
+        console.log(orders);
+        // let data = orders.flat();
+        getCardList(orders)
     }).catch((err) => console.log(err));
-} 
+}
 
-let container = document.getElementById("container");
+
 // getCardList(product)
 function getCardList(data) {
     let brand = {};
@@ -86,15 +104,15 @@ function getCardList(data) {
         } else {
             category[element.category]++;
         }
-        let card = getCard(element._id, element.title, element.brand, element.category, element.rating, element.price, element.img, element.quantity);
+        let card = getCard(element._id, element.title, element.rating, element.price, element.img, element.date, element.status);
         cardList.append(card)
     });
     console.log("Brand", brand);
     console.log("category", category);
     return cardList;
 }
-function getCard(dataId, title, brand, category, rating, price, avatar, quantity) {
-    // console.log({dataId:dataId, title:title, brand:brand, category:category, rating:rating, price:price, avatar:avatar, quantity:quantity});
+function getCard(dataId, title, rating, price, avatar, date, status) {
+    // console.log({dataId:dataId, title:title,rating:rating, price:price, avatar:avatar, date:orderDate, orderStatus:status});
     let card = document.createElement("div");
     card.classList = "card";
     card.setAttribute("data-id", dataId);
@@ -122,76 +140,30 @@ function getCard(dataId, title, brand, category, rating, price, avatar, quantity
     ratingCard.innerHTML = `<i class="fa-sharp fa-solid fa-star" style="color: #212121;"></i> ${rating}`
     // `Rating: ${rating}  Price: ${price}`;
 
-    let priceCard = document.createElement("h4");
-    priceCard.classList = "card_item"
-    priceCard.classList = "card_price";
-    priceCard.innerText = `₹ ${price}`;
+    // let priceCard = document.createElement("h4");
+    // priceCard.classList = "card_item"
+    // priceCard.classList = "card_price";
+    // priceCard.innerText = `₹ ${price}`;
 
-    let buttonDiv = document.createElement("div");
-    buttonDiv.classList = "card_button";
+    // let buttonDiv = document.createElement("div");
+    // buttonDiv.classList = "card_button";
 
-    let cartButton = document.createElement("button");
-    cartButton.classList = "card_item";
-    cartButton.classList = "card_addCart";
-    cartButton.id = dataId
+    let orderStatus = document.createElement("h5");
+    orderStatus.classList = "card_item";
+    orderStatus.classList = "card_addCart";
+    orderStatus.id = dataId
 
-    cartButton.innerHTML = `<i class="fa-solid fa-cart-shopping fa-bounce"></i> Add To Cart`
-    cartButton.addEventListener("click", (e) => {
-        let cartObject = {
-            "title": title,
-            "brand": brand,
-            "category": category,
-            "rating": rating,
-            "price": price,
-            "img": avatar,
-            "quantity": 1,
-            "prodID": e.target.id
-        };
-        console.log(cartObject);
-        console.log(saveToken.token);
-        fetch(`http://localhost:4500/wishlist/delete/${e.target.id}`, {
-            method: "DELETE",
-            headers: {
-                "authorization": `Bearer ${saveToken.token}`
-            }
-        }).then((res) => res.json()).then((res) => {
-            // console.log(res)
-            alert("Product is added to cart.")
-        }).catch((err) => console.log(err))
-        fetch(`http://localhost:4500/cart/add/`, {
-            method: "POST",
-            headers: {
-                'Content-type': "application/json",
-                "authorization": `Bearer ${saveToken.token}`
-            },
-            body: JSON.stringify(cartObject)
-        }).then((res) => res.json()).then((res) => {
-            console.log(res);
-            fetchData();
-            fetchCartLength(), fetchWishlistLength()
-        })
-    })
-    let removeButton = document.createElement("button");
-    removeButton.classList = "card_item";
-    removeButton.classList = "card_addWishlist";
-    removeButton.id = dataId
-    removeButton.innerHTML = `Remove`
-    removeButton.addEventListener("click", (e) => {
-        fetch(`http://localhost:4500/wishlist/delete/${e.target.id}`, {
-            method: "DELETE",
-            headers: {
-                "authorization": `Bearer ${saveToken.token}`
-            }
-        }).then((res) => res.json()).then((res) => {
-            console.log(res)
-            alert(res.msg)
-            fetchData();
-            fetchCartLength(), fetchWishlistLength()
-        }).catch((err) => console.log(err))
-    })
-    buttonDiv.append(cartButton, removeButton)
+    orderStatus.innerHTML = `Order Status: ${status}`
 
-    cardBody.append(ratingCard, nameCard, priceCard, buttonDiv)
+    let orderDate = document.createElement("h5");
+    orderDate.classList = "card_item";
+    orderDate.classList = "card_addCart";
+    orderDate.id = dataId
+
+    orderDate.innerHTML = `Order Date: ${date}`
+
+    // buttonDiv.append(orderStatus)
+    cardBody.append(ratingCard, nameCard, orderStatus, orderDate)
 
     imageCard.append(image)
 
