@@ -5,103 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HelthBooster -Cart Page</title>
+    <title>HelthBooster -My Orders</title>
     <link rel="icon" href="./titleLogo.jpg" type="image/icon type">
     <meta charset="UTF-8">
     <meta property="og:title" content="HelathBooster.com">
-    <!-- <style>
-        body {
-            box-sizing: border-box;
-        }
-
-        img {
-            width: 100%;
-            margin: auto;
-            height: 200px;
-        }
-
-        #outer {
-            width: 90%;
-            margin: auto;
-            box-sizing: border-box;
-        }
-
-        #main {
-            width: 100%;
-            /* margin: auto; */
-            margin-bottom: 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px 20px;
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        }
-
-        #outer {
-            margin-top: 20px;
-        }
-
-        #container .card-list {
-            width: 95%;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px 30px;
-            margin-top: 30px;
-        }
-
-        .card {
-            width: 100%;
-            height: 420px;
-            margin: auto;
-            padding: 5px;
-            background-color: FFFEFF;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            border-radius: 10px;
-        }
-
-        .card_addCart,
-        .card_addWishlist {
-            width: 40%;
-            margin: 7px;
-            padding: 7px;
-            font-size: 12px;
-            border-radius: 15px;
-            background-color: whitesmoke;
-        }
-
-        #pagination {
-            width: 30%;
-            margin: auto;
-            display: flex;
-            flex-direction: row;
-            margin-top: 20px;
-        }
-
-        #pagination>button {
-            margin: 10px;
-            font-size: 17px;
-            font-weight: bold;
-            background-color: #498c4d;
-            color: white;
-            border-radius: 8px;
-            padding: 8px;
-        } 
-    </style>-->
-    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./styles/cart.css">
+    <link rel="stylesheet" href="./styles/myorder.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<style>
-    #cart {
-        text-align: center;
-        font-size: 20px;
-        margin: 7px;
-        font-weight: bold;
-        background-color: rgb(174, 238, 168);
-    }
-</style>
 
 <body>
 
@@ -139,56 +51,23 @@
             <a href="">gift Card</a>
             <a href="">Coustomer Support</a>
             <a href="">Store Location</a>
-        </div>
-        <div id="cart">Your Cart</div>
-        <div class="placeOrder-nav">
-            <h3  id="allPlaceOrderButton_cartValue">Total Cart Value : 0</h3>
-            <a id="allPlaceOrderButton" href="./checkout.html">Click Here to Place Order</a>
-            <h3  id="allPlaceOrderButton_cartQuntity">Total Cart Quntity : 0</h3>
+
         </div>
     </nav>
 
     <!-- NAVBAR -->
+
     <div id="outer">
-        <div id="checkout-information">
-            <!-- pagination here -->
-            <div class="checkout">
-                <h1>Order Summary</h1>
-                <div class="details">
-                    <div>
-                        <div>
-                            <p>Original Price</p>
-                        </div>
-                        <div id="originalprice">0</div>
-                    </div>
-                    <hr />
-                    <div>
-                        <div>
-                            <p>Discount 15%</p>
-                        </div>
-                        <div id="savings">0</div>
-                    </div>
-                    <hr />
-                    <div>
-                        <div>
-                            <p>Delivery charges</p>
-                        </div>
-                        <div id="delivery">Free</div>
-                    </div>
-                    <hr />
-                    <div>
-                        <div>Total Price</div>
-                        <div id="total">0</div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div id="container">
             <!-- product appende here -->
+        </div>
+        <div id="pagination">
+            <!-- pagination here -->
         </div>
     </div>
 
 
+    <!-- FOOTER -->
 
     <div id="f-main">
         <footer>
@@ -231,7 +110,6 @@
                             <a href="#">Fitness</a>
                             <a href="#">Whey Proteins</a>
                             <a href="#">Mass Gainer</a>
-                            <a href="#">Vitals</a>
                             <a href="#">Instrument</a>
                         </div>
                     </div>
@@ -252,6 +130,7 @@
 </body>
 
 </html>
+<script src="./scripts/myorder.js"></script>
 
 <!-- login / logout logic -->
 <style id="logoutStyle">
@@ -262,7 +141,7 @@
     let logoutStyle = document.getElementById("logoutStyle");
     let signup_div = document.getElementById("signup-div");
 
-    // console.log(saveToken, saveToken.length);
+    console.log(saveToken, saveToken.length);
     if (saveToken.logout) {
         // console.log("hii");
         signup_div.innerHTML = null;
@@ -273,45 +152,45 @@
         signup_div.innerHTML = ` <div class="dropdown">
        <a href="#" id="sign-in"><i class="fa fa-user"></i> ${saveToken.name}</a>
        <div class="dropdown-content">
-        <a href="./myorder.html">My Orders</a>
+         <a href="./myorder.html">My Orders</a>
          <a onclick="logout()">Log out</a>
        </div>
      </div>`
         logoutStyle.append(
-            `.dropdown {
-   display: inline-block;
-   position: relative;
-   background-color: white;
- }
- .dropdown-content {
-   display: none;
-   position: absolute;
-   width: 100%;
-   overflow: auto;
-   box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
- }
- .dropdown:hover .dropdown-content {
-   display: block;
- }
- .dropdown-content a {
-   display: block;
-   color: #000000;
-   padding: 5px;
-   text-decoration: none;
-   background-color: rgb(205, 250, 214);
- }
- .dropdown-content a:hover {
-   color: #FFFFFF;
-   background-color: #00A4BD;
- }`
+                `.dropdown {
+            display: inline-block;
+            position: relative;
+            background-color: white;
+            }
+            .dropdown-content {
+            display: none;
+            position: absolute;
+            width: 100%;
+            overflow: auto;
+            box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+            }
+            .dropdown:hover .dropdown-content {
+            display: block;
+            }
+            .dropdown-content a {
+            display: block;
+            color: #000000;
+            padding: 5px;
+            text-decoration: none;
+            background-color: rgb(205, 250, 214);
+            }
+            .dropdown-content a:hover {
+            color: #FFFFFF;
+            background-color: #00A4BD;
+            }`
         )
     }
+
     function logout() {
-        // console.log("logout")
+        console.log("logout")
         sessionStorage.setItem("token", JSON.stringify({ logout: true }));
         window.location.reload()
     }
 </script>
-<!-- login / logout logic -->
 
-<script src="./scripts/cart.js"></script>
+<!-- login / logout logic -->

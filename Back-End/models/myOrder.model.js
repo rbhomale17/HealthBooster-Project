@@ -5,7 +5,8 @@ const MyOrderSchema = mongoose.Schema({
     mobile:{type:Number,required:true, minLength:10,maxLength:10},
     address:{type:String,required:true},
     orders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'product' } ],
-    status:{type:String, default:"In Transit", enum:["In Transit", "Delivered","Out For Delivery"]},
+    status:{type:String, default:"Delivered", enum:["In Transit", "Delivered","Out For Delivery"]},
+    date:{type:String},
     userID:{ type: mongoose.Schema.Types.ObjectId, ref: 'user' } 
 });
 
