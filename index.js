@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
       myorder: `app.use('/myorder;,myorderRouter)`
     }
   }
-  res.send({ Server_Details: obj })
+  res.send({ Server_Details: obj });
 });
 
 
