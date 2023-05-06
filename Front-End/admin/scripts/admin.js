@@ -23,7 +23,7 @@ window.onscroll = function () { fetchDetails() }
 fetchDetails()
 
 function fetchDetails() {
-    fetch(`http://localhost:4500/products/`, {
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/products/`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${saveToken.token}`
@@ -32,7 +32,7 @@ function fetchDetails() {
         products.innerText = res.products.length;
     });
 
-    fetch(`http://localhost:4500/users/`, {
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/users/`, {
         method: "GET",
         headers: {
             "content-type": "application/json",
@@ -55,7 +55,7 @@ function fetchDetails() {
         // console.log(adminUser,customerUser)
     });
 
-    fetch(`http://localhost:4500/myorder/allorders`, {
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/myorder/allorders`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${saveToken.token}`
@@ -95,7 +95,7 @@ addnNew.addEventListener("submit",(e)=>{
     if(newImage.value) newObject.img = newImage.value
     if(newQuntity.value) newObject.quantity = newQuntity.value
 
-    fetch(`http://localhost:4500/products/add`,{
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/products/add`,{
         method:"POST",
         headers:{
             "content-type":"application/json",
@@ -136,7 +136,7 @@ updateProduct.addEventListener("submit",(e)=>{
     if(updateImage.value) newObject.img = updateImage.value
     if(updateQuantity.value) newObject.quantity = updateQuantity.value
     
-    fetch(`http://localhost:4500/products/update/${updateID.value}`,{
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/products/update/${updateID.value}`,{
         method:"PATCH",
         headers:{
             "content-type":"application/json",
@@ -159,7 +159,7 @@ let deleteID = document.getElementById("deleteID");
 deleteProduct.addEventListener("submit",(e)=>{
     e.preventDefault();
 
-    fetch(`http://localhost:4500/products/delete/${deleteID.value}`,{
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/products/delete/${deleteID.value}`,{
         method:"DELETE",
         headers:{
             "content-type":"application/json",
@@ -191,7 +191,7 @@ window.addEventListener("load", () => {
 let page = 1; ProductLimit = 14
 
 function fetchData() {
-    fetch(`http://localhost:4500/products/`)
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/products/`)
         .then((res) => res.json())
         .then((res) => {
             // console.log(res.products);
@@ -220,7 +220,7 @@ function createbtn(page, id) {
 }
 function fetchDataAfterPagination(page, query) {
     // console.log(page);
-    fetch(`http://localhost:4500/products/?page=${page}&limit=${ProductLimit}`).then((res) => res.json()).then((res) => {
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/products/?page=${page}&limit=${ProductLimit}`).then((res) => res.json()).then((res) => {
         // console.log(res.products);
         getCardList(res.products)
     })
@@ -232,7 +232,7 @@ function fetchDataAfterPagination(page, query) {
 //     let pagination = document.getElementById("pagination");
 
 //     if (!c1 && !c2 && !c3 && !c4 && !c5 && !c6 && !b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !rating && !price) {
-//         fetch(`http://localhost:4500/products/`).then((res) => res.json()).then((res) => {
+//         fetch(`https://moral-riddle-2098-project-server.onrender.com/products/`).then((res) => res.json()).then((res) => {
 //             let length = res.products.length;
 //             console.log(page)
 //             let total = Math.ceil(length / 12);
@@ -249,7 +249,7 @@ function fetchDataAfterPagination(page, query) {
 //         });
 //     } else if (rating && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !c1 && !c2 && !c3 && !c4 && !c5 && !c6 && !price)) {
 //         // console.log(b1, b2, b3, b4, b5, b6, b7, rating, price);
-//         fetch(`http://localhost:4500/products/?rating=${rating}`).then((res) => res.json()).then((res) => {
+//         fetch(`https://moral-riddle-2098-project-server.onrender.com/products/?rating=${rating}`).then((res) => res.json()).then((res) => {
 //             let length = res.products.length;
 //             // console.log(page)
 //             let total = Math.ceil(length / 12);
@@ -265,7 +265,7 @@ function fetchDataAfterPagination(page, query) {
 //         });
 //     }
 //     else if ((c1 || c2 || c3 || c4 || c5 || c6) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7) && (!rating) && !price) {
-//         fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}`).then((res) => res.json()).then((res) => {
+//         fetch(`https://moral-riddle-2098-project-server.onrender.com/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}`).then((res) => res.json()).then((res) => {
 //             let length = res.products.length;
 //             //console.log(page)
 //             let total = Math.ceil(length / 12);
@@ -281,7 +281,7 @@ function fetchDataAfterPagination(page, query) {
 //             console.log(err);
 //         });
 //     } else if ((b1 || b2 || b3 || b4 || b5 || b6 || b7) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6) && (!rating) && !price) {
-//         fetch(`http://localhost:4500/products/?brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
+//         fetch(`https://moral-riddle-2098-project-server.onrender.com/products/?brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
 //             let length = res.products.length;
 //             // console.log(page)
 //             let total = Math.ceil(length / 12);
@@ -298,7 +298,7 @@ function fetchDataAfterPagination(page, query) {
 //         });
 //     }
 //     else if ((c1 || c2 || c3 || c4 || c5 || c6 || rating) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !price)) {
-//         fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&rating=${rating}`).then((res) => res.json()).then((res) => {
+//         fetch(`https://moral-riddle-2098-project-server.onrender.com/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&rating=${rating}`).then((res) => res.json()).then((res) => {
 //             let length = res.products.length;
 //             // console.log(page)
 //             let total = Math.ceil(length / 12);
@@ -314,7 +314,7 @@ function fetchDataAfterPagination(page, query) {
 //             console.log(err);
 //         });
 //     } else if ((price || rating) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !c1 && !c2 && !c3 && !c4 && !c5)) {
-//         fetch(`http://localhost:4500/products/?rating=${rating}&price=${price}`).then((res) => res.json()).then((res) => {
+//         fetch(`https://moral-riddle-2098-project-server.onrender.com/products/?rating=${rating}&price=${price}`).then((res) => res.json()).then((res) => {
 //             let length = res.products.length;
 //             // console.log(page)
 //             let total = Math.ceil(length / 12);
@@ -332,7 +332,7 @@ function fetchDataAfterPagination(page, query) {
 //     }
 //     else if ((rating || b1 || b2 || b3 || b4 || b5 || b6 || b7) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6 && !price)) {
 //         // console.log(b1, b2, b3, b4, b5, b6, b7, rating);
-//         fetch(`http://localhost:4500/products/?rating=${rating}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
+//         fetch(`https://moral-riddle-2098-project-server.onrender.com/products/?rating=${rating}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
 //             let length = res.products.length;
 //             // console.log(page)
 //             let total = Math.ceil(length / 12);
@@ -350,7 +350,7 @@ function fetchDataAfterPagination(page, query) {
 //     }
 //     else if ((rating || b1 || b2 || b3 || b4 || b5 || b6 || b7 || price) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6)) {
 //         console.log(b1, b2, b3, b4, b5, b6, b7, rating, "XXX", price);
-//         fetch(`http://localhost:4500/products/?brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}&price=${price}&rating=${rating}`).then((res) => res.json()).then((res) => {
+//         fetch(`https://moral-riddle-2098-project-server.onrender.com/products/?brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}&price=${price}&rating=${rating}`).then((res) => res.json()).then((res) => {
 //             let length = res.products.length;
 //             // console.log(page)
 //             let total = Math.ceil(length / 12);
@@ -367,7 +367,7 @@ function fetchDataAfterPagination(page, query) {
 //         });
 //     }
 //     else if ((c1 || c2 || c3 || c4 || c5 || c6 || price) && (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !rating)) {
-//         fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&price=${price}`).then((res) => res.json()).then((res) => {
+//         fetch(`https://moral-riddle-2098-project-server.onrender.com/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&price=${price}`).then((res) => res.json()).then((res) => {
 //             let length = res.products.length;
 //             // console.log(page)
 //             let total = Math.ceil(length / 12);
@@ -384,7 +384,7 @@ function fetchDataAfterPagination(page, query) {
 //         });
 //     } else if ((price || b1 || b2 || b3 || b4 || b5 || b6 || b7) && (!c1 && !c2 && !c3 && !c4 && !c5 && !c6 && !rating)) {
 //         // console.log(b1, b2, b3, b4, b5, b6, b7, rating);
-//         fetch(`http://localhost:4500/products/?price=${price}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
+//         fetch(`https://moral-riddle-2098-project-server.onrender.com/products/?price=${price}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}`).then((res) => res.json()).then((res) => {
 //             let length = res.products.length;
 //             // console.log(page)
 //             let total = Math.ceil(length / 12);
@@ -401,7 +401,7 @@ function fetchDataAfterPagination(page, query) {
 //         });
 //     }
 //     else if (c1 || c2 || c3 || c4 || c5 || c6 || b1 || b2 || b3 || b4 || b5 || b6 || b7 || rating || price) {
-//         fetch(`http://localhost:4500/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}&rating=${rating}&price=${price}`).then((res) => res.json()).then((res) => {
+//         fetch(`https://moral-riddle-2098-project-server.onrender.com/products/?category=${c1}&category=${c2}&category=${c3}&category=${c4}&category=${c5}&category=${c6}&brand=${b1}&brand=${b2}&brand=${b3}&brand=${b4}&brand=${b5}&brand=${b6}&brand=${b7}&rating=${rating}&price=${price}`).then((res) => res.json()).then((res) => {
 //             let length = res.products.length;
 //             // console.log(page)
 //             let total = Math.ceil(length / 12);

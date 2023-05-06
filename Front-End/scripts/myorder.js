@@ -22,7 +22,7 @@ fetchCartLength(), fetchWishlistLength()
 
 function fetchCartLength() {
     // console.log("HIII");
-    fetch(`http://localhost:4500/cart/`, {
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/cart/`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${saveToken.token}`
@@ -39,7 +39,7 @@ function fetchCartLength() {
 
 function fetchWishlistLength() {
     // console.log("HIII");
-    fetch(`http://localhost:4500/wishlist/`, {
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/wishlist/`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${saveToken.token}`
@@ -57,7 +57,7 @@ function fetchWishlistLength() {
 window.addEventListener("load", () => fetchData())
 
 function fetchData() {
-    fetch(`http://localhost:4500/myorder/`, {
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/myorder/`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${saveToken.token}`

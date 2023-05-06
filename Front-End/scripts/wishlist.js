@@ -22,7 +22,7 @@ fetchCartLength(), fetchWishlistLength()
 
 function fetchCartLength() {
     // console.log("HIII");
-    fetch(`http://localhost:4500/cart/`, {
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/cart/`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${saveToken.token}`
@@ -40,7 +40,7 @@ function fetchCartLength() {
 
 function fetchWishlistLength() {
     // console.log("HIII");
-    fetch(`http://localhost:4500/wishlist/`, {
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/wishlist/`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${saveToken.token}`
@@ -60,7 +60,7 @@ window.addEventListener("load", () => {
 })
 
 function fetchData() {
-    fetch(`http://localhost:4500/wishlist/`, {
+    fetch(`https://moral-riddle-2098-project-server.onrender.com/wishlist/`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${saveToken.token}`
@@ -159,7 +159,7 @@ function getCard(dataId, title, brand, category, rating, price, avatar, quantity
         };
         console.log(cartObject);
         console.log(saveToken.token);
-        fetch(`http://localhost:4500/wishlist/delete/${e.target.id}`, {
+        fetch(`https://moral-riddle-2098-project-server.onrender.com/wishlist/delete/${e.target.id}`, {
             method: "DELETE",
             headers: {
                 "authorization": `Bearer ${saveToken.token}`
@@ -168,7 +168,7 @@ function getCard(dataId, title, brand, category, rating, price, avatar, quantity
             // console.log(res)
             alert("Product is added to cart.")
         }).catch((err) => console.log(err))
-        fetch(`http://localhost:4500/cart/add/`, {
+        fetch(`https://moral-riddle-2098-project-server.onrender.com/cart/add/`, {
             method: "POST",
             headers: {
                 'Content-type': "application/json",
@@ -187,7 +187,7 @@ function getCard(dataId, title, brand, category, rating, price, avatar, quantity
     removeButton.id = dataId
     removeButton.innerHTML = `Remove`
     removeButton.addEventListener("click", (e) => {
-        fetch(`http://localhost:4500/wishlist/delete/${e.target.id}`, {
+        fetch(`https://moral-riddle-2098-project-server.onrender.com/wishlist/delete/${e.target.id}`, {
             method: "DELETE",
             headers: {
                 "authorization": `Bearer ${saveToken.token}`
