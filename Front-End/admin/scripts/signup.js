@@ -1,4 +1,4 @@
-const BaseUrl = "http://localhost:4500";
+const BaseUrl = "https://moral-riddle-2098-project-server.onrender.com";
 const registrationUrl = `${BaseUrl}/users/register`
 
 let firstnameError = document.getElementById("firstname-error")
