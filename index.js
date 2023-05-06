@@ -24,6 +24,13 @@ app.get("/", (req, res) => {
     tech_stacks: "Node.js, Express JS, MongoDB, Mongoose, npm packages, JavaScript, HTML, CSS",
     Github_Profile: `https://github.com/rbhomale17`,
     LinkedIn: `https://www.linkedin.com/in/rushikesh-bhomale-aa29a3158/`,
+    SomeUsefullRoutes: {
+      users: "app.use('/users', userRouter)",
+      products: "app.use('/products', productRouter)",
+      cart: "app.use('/cart', cartRouter)",
+      wishlist: "app.use('/wishlist',wishlistRouter)",
+      myorder: `app.use('/myorder;,myorderRouter)`
+    }
   }
   res.send({ Server_Details: obj })
 });
@@ -34,8 +41,8 @@ app.use('/users', userRouter);
 app.use("/todos", todosRouter)
 app.use("/products", productRouter)
 app.use("/cart", cartRouter)
-app.use("/wishlist",wishlistRouter)
-app.use("/myorder",myorderRouter)
+app.use("/wishlist", wishlistRouter)
+app.use("/myorder", myorderRouter)
 
 app.listen(port, async () => {
   try {
