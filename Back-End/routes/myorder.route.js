@@ -23,8 +23,8 @@ myorderRouter.get("/", UserAuthorizationMiddleware, async (req, res) => {
 // AdminAuthorizationMiddleware
 myorderRouter.get("/allorders", async (req, res) => {
     let myorders = await MyOrderModel.find();
-    console.log(myorders); 
-    res.send({ myorder: myorders.myorder });
+    // console.log(myorders); 
+    res.send({ myorder: myorders });
 })
 // Wishlist item adding Routes
 myorderRouter.post("/add", UserAuthorizationMiddleware, async (req, res) => {

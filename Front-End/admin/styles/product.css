@@ -6,11 +6,10 @@
     color: FFFFFF;
 }
 
-.card img {
-    width: 70%;
+img {
+    width: 100%;
     margin: auto;
     height: 200px;
-    padding: 10px;
 }
 
 #outer {
@@ -23,7 +22,7 @@
     color: rgb(8, 151, 47);
 }
 
-/* #main {
+#main {
     width: 100%;
     margin: auto;
     margin-bottom: 20px;
@@ -36,8 +35,8 @@
 }
 
 #main button {
-    background-color: rgb(190, 243, 204);
-    background: transparent;
+    /* background-color: rgb(190, 243, 204); */
+    /* background: transparent; */
     background-color: #498c4d;
     ;
     border-width: 2px;
@@ -48,106 +47,67 @@
 }
 
 #main button:hover {
-    background-color: rgb(190, 243, 204);
-    background: transparent;
+    /* background-color: rgb(190, 243, 204); */
+    /* background: transparent; */
     background-color: #a0e0a5;
     border-width: 2px;
     border-color: black;
     color: black;
     border-radius: 10px;
     font-size: 15px;
-} */
+}
 
 #outer {
     margin-top: 20px;
-    /* display: flex;
-    flex-direction: column; */
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
 }
 
 #container .card-list {
-    width: 90%;
+    width: 95%;
     margin: auto;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px 30px;
     margin-top: 30px;
 }
 
 .card {
     width: 100%;
-    /* height: 150px; */
+    height: 420px;
     margin: auto;
     padding: 5px;
     background-color: FFFEFF;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 10px;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    font-size: 15px;
 }
 
-.card button {
-    margin: 10px;
-}
-
-.card button:nth-child(1) {
-    width: 30px;
-    height: 30px;
-    margin: 10px;
-}
-
-.card button:nth-child(3) {
-    width: 30px;
-    height: 30px;
-    margin: 10px;
-}
-.dashboard{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 20px;
-    border-radius: 20px;
-}
-.card img{
-    width: 60%;
-    height: 150px;
-}
 .fa-solid,
 .fa-regular {
     color: #3f9d97
 }
 
+.card_addCart,
 .card_addWishlist {
-    width: 10%;
+    width: 40%;
     margin: 7px;
     padding: 7px;
-    font-size: 20px;
+    font-size: 12px;
     border-radius: 15px;
     border-color: rgb(167, 237, 226);
     border-width: 3px;
     background-color: rgb(224, 254, 250);
 }
 
-.card-quntity {
-    display: inline;
-    margin: 10px;
-    margin: auto;
-    font-size: 20px;
-    padding: 10px;
-}
-
-#container .card_addWishlist:hover {
+#container button:hover {
     border-radius: 15px;
     border-color: rgb(167, 237, 226);
     border-width: 3px;
     background-color: #a0e0a5;
     color: black;
-    font-size: 20px;
+    font-size: 12px;
     cursor: pointer;
 }
 
-/* #pagination {
+#pagination {
     width: 30%;
     margin: auto;
     display: flex;
@@ -173,7 +133,7 @@
     color: bl;
     border-radius: 8px;
     padding: 8px;
-} */
+}
 
 
 /* <--- Navbar CSS ---> */
@@ -271,52 +231,6 @@
     color: #130204;
 }
 
-.placeOrder-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #d9edda;
-    /* height: 60px; */
-    justify-content: space-around;
-}
-
-.placeOrder-nav #allPlaceOrderButton {
-    font-family: poppins;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 20px;
-    background-color: rgb(248, 161, 67);
-}
-.placeOrder-nav #allPlaceOrderButton_cartValue {
-    font-family: poppins;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 20px;
-    background-color: rgb(248, 161, 67);
-}
-.placeOrder-nav #allPlaceOrderButton_cartQuntity {
-    font-family: poppins;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 20px;
-    background-color: rgb(248, 161, 67);
-}
-.placeOrder-nav #allPlaceOrderButton:hover {
-    background-color: rgb(249, 204, 156);
-    color: #130204;
-}
-.placeOrder-nav #allPlaceOrderButton_cartValue:hover {
-    background-color: rgb(249, 204, 156);
-    color: #130204;
-}.placeOrder-nav #allPlaceOrderButton_cartQuntity:hover {
-    background-color: rgb(249, 204, 156);
-    color: #130204;
-}
 /* Media query for responsive design */
 @media screen and (max-width: 1020px) {
     .search-bar {
@@ -327,18 +241,18 @@
         height: 120px;
     }
 
-    /* #container .card-list {
+    #container .card-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px 30px;
         margin-top: 30px;
-    } */
+    }
 
-    #outer {
-        margin-top: 20px;
+    #pagination {
+        width: 40%;
+        margin: auto;
         /* display: flex;
-        flex-direction: column; */
-        display: grid;
-        grid-template-columns: repeat(1, 1fr)
+        flex-direction: row; */
+        margin-top: 20px;
     }
 }
 
@@ -355,19 +269,19 @@
         flex-direction: column;
     }
 
-    /* #container .card-list {
+    #container .card-list {
         grid-template-columns: repeat(1, 1fr);
         gap: 20px 30px;
         margin-top: 30px;
-    } */
+    }
 
-    /* #pagination {
+    #pagination {
         width: 70%;
-        margin: auto; */
-    /* display: flex;
+        margin: auto;
+        /* display: flex;
         flex-direction: row; */
-    /* margin-top: 20px;
-    }  */
+        margin-top: 20px;
+    }
 }
 
 /* <--- Navbar CSS ---> */

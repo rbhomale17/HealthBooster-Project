@@ -47,7 +47,7 @@ productRouter.delete("/delete/:id", AdminAuthorizationMiddleware, async (req, re
 // Product Get request handeler
 productRouter.get("/", async (req, res) => {
     const { category, brand, rating, price, quantity, sortrating, sortprice, page, limit } = req.query;
-    console.log(req.query);
+    // console.log(req.query);
     if (page && limit) {
         let p = +page;
         let l = +limit;
