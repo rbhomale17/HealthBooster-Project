@@ -7,6 +7,7 @@ const MyOrderSchema = mongoose.Schema({
     orders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'product' } ],
     status:{type:String, default:"Delivered", enum:["In Transit", "Delivered","Out For Delivery"]},
     date:{type:String},
+    cost:{type:Number},
     userID:{ type: mongoose.Schema.Types.ObjectId, ref: 'user' } 
 });
 

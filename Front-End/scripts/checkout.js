@@ -4,12 +4,22 @@ const address = document.getElementById('adr');
 var saveToken = JSON.parse(sessionStorage.getItem("token"));
 var wishlistCounter = document.getElementById("wishlistCounter");
 var cartCounter = document.getElementById("cartCounter");
-if (cartCounter.innerText == 1) {
-  console.log(true)
-} else {
-  console.log(false);
+window.onscroll = function () { fetchCartLength(), fetchWishlistLength() };
+
+// session storage for token
+var saveToken = JSON.parse(sessionStorage.getItem("token"));
+//  let container = document.getElementById("container");
+
+let container = document.getElementById("container");
+
+if (!saveToken) {
+  // alert("Please Log in First")
+  container.innerHTML = null;
+  container.innerHTML = `<h3> Please Log in First</h3>`
 }
-console.log("*******");
+var wishlistCounter = document.getElementById("wishlistCounter");
+var cartCounter = document.getElementById("cartCounter");
+// console.log(cartCounter);
 
 // getting wishlist and cart length by this functions
 fetchCartLength(), fetchWishlistLength();
@@ -24,7 +34,7 @@ function fetchCartLength() {
     }
   })
     .then((res) => res.json()).then((res) => {
-      console.log(res.cart);
+      // console.log(res.cart);
       let length = res.cart.length;
       cartCounter.innerText = length;
     }).catch((err) => {
@@ -42,7 +52,26 @@ function fetchWishlistLength() {
     }
   })
     .then((res) => res.json()).then((res) => {
-      console.log(res.wishlist);
+      // console.log(res.wishlist);
+      let length = res.wishlist.length;
+      wishlistCounter.innerText = length;
+    }).catch((err) => {
+      console.log(err);
+    })
+};
+
+
+
+function fetchWishlistLength() {
+  // console.log("HIII");
+  fetch(`http://localhost:4500/wishlist/`, {
+    method: "GET",
+    headers: {
+      "authorization": `Bearer ${saveToken.token}`
+    }
+  })
+    .then((res) => res.json()).then((res) => {
+      // console.log(res.wishlist);
       let length = res.wishlist.length;
       wishlistCounter.innerText = length;
     }).catch((err) => {
@@ -53,13 +82,31 @@ function fetchWishlistLength() {
 
 let submit = document.querySelector("form");
 
-  submit.addEventListener("submit", (e) => {
-    e.preventDefault();
+submit.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let cost = 0;
+  fetch(`http://localhost:4500/cart/`, {
+    method: "GET",
+    headers: {
+      "authorization": `Bearer ${saveToken.token}`
+    }
+  }).then((res) => res.json()).then((res) => {
+    let value = 0;
+    let qty = 0;
+
+    for (let i = 0; i < res.cart.length; i++) {
+      value += Math.ceil((res.cart[i].price * res.cart[i].quantity));
+      qty += res.cart[i].quantity;
+    }
+    console.log(value, qty);
+    cost = value * qty;
+
     let obj = {
       address: address.value,
-      date:new Date().toUTCString()
+      date: new Date().toUTCString(),
+      cost: cost
     };
-    // console.log(obj)
+    console.log(obj)
     fetch(`http://localhost:4500/myorder/add`, {
       method: "POST",
       headers: {
@@ -70,5 +117,8 @@ let submit = document.querySelector("form");
     }).then((res) => res.json()).then((res) => {
       fetchCartLength(), fetchWishlistLength();
       alert(res.msg);
+      alert("Redirecting You To My Order Section.")
+      window.location.href = "./myorder.html"
     })
   })
+})

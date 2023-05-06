@@ -15,15 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<!-- <style>
-    #cart {
-        text-align: center;
-        font-size: 20px;
-        margin: 7px;
-        font-weight: bold;
-        background-color: rgb(174, 238, 168);
-    }
-</style> -->
 
 <body>
 
@@ -33,7 +24,7 @@
     <nav class="navbar">
         <div class="top-nav">
             <div class="logo">
-                <a href="./index.html"><img src="./logo.jpg" alt=""></a>
+                <a href="./admin.html"><img src="./logo.jpg" alt=""></a>
             </div>
             <div class="search-bar">
                 <div class="title">SEARCH</div>
@@ -44,27 +35,29 @@
             </div>
             <div class="nav-buttons">
                 <div id="signup-div">
-                    <a href="./signup.html" id="sign-in"><i class="fa fa-user"></i> Sign In / Register</a>
+                    <a href="#" id="sign-in"><i class="fa fa-user"></i> Sign In / Register</a>
                 </div>
-                <!-- <a class="wish" href="./wishlist.html">
-                    <h4 id="wishlistCounter">0</h4> <i class="fa-regular fa-heart"></i> Wishlist
-                </a> -->
-                <a class="wish" href="./Cart.html">
-                    <i class="fa-solid fa-bell fa-shake" style="color: #020a17;"></i>Notifications
+                <a class="wish" href="#">
+                    <i class="fa-solid fa-bell fa-shake" style="color: #020a17;"> 0</i>Notifications 
                 </a>
-            </div>
+            </div> 
         </div>
         <div class="bottom-nav">
-            <a href="">Brands</a>
-            <a href="./product.html">All Products</a>
-            <a href="">Blogs</a>
-            <a href="">gift Card</a>
-            <a href="">Coustomer Support</a>
-            <a href="">Store Location</a>
+            <a href="./signup.html">Admin Registration</a>
+            <a href="./admin_product.html">All Products</a>
+            <!-- <a href="./AllOrder.html">All Orders</a> -->
+            <a href="../index.html">Visit Home Page</a>
         </div>
     </nav>
 
     <!-- NAVBAR -->
+    <hr id="Stats">
+    <hr>
+    <hr>
+    <h2 id="Stat">All Statastics About HealthBooster</h2>
+    <hr>
+    <hr>
+    <hr>
     <div id="outer">
         <div id="checkout-information">
             <!-- pagination here -->
@@ -99,8 +92,104 @@
             </div>
         </div>
     </div>
+    <div>
+        <hr>
+        <hr>
+        <hr>
+    </div>
+    <hr>
 
-
+    <h2 id="Stat">All products Details</h2>
+    <hr>
+    <hr>
+    <hr>
+    <div id="dashboard">
+        <div id="container">
+            <form id="addNew">
+                <h3>Add New Product</h3>
+                <div class="input-group">
+                    <label>Title</label>
+                    <input type="text" id="newtitle" required placeholder="Product Name">
+                </div>
+                <div class="input-group">
+                    <label>Image</label>
+                    <input type="text" id="newImage" placeholder="Product Image URL">
+                </div>
+                <div class="input-group">
+                    <label>Brand</label>
+                    <Select id="newBrand">
+                        <option value="HealthKart">HealthKart</option>
+                        <option value="MuscleBlaze">MuscleBlaze</option>
+                        <option value="Onetouch">Onetouch</option>
+                        <option value="Beurer">Beurer</option>
+                    </Select>
+                </div>
+                <div class="input-group">
+                    <label>Category</label>
+                    <Select id="newCategory">
+                        <option value="Biotin">Biotin</option>
+                        <option value="Fitness">Fitness</option>
+                        <option value="Vitals">Vitals</option>
+                        <option value="Mass Gainer">Mass Gainer</option>
+                    </Select>
+                </div>
+                <div class="input-group">
+                    <label>Rating</label>
+                    <input type="number" id="newRating" placeholder="Product Rating">
+                </div>
+                <div class="input-group">
+                    <label>Price</label>
+                    <input type="number" id="newPrice" placeholder="Product Price">
+                </div>
+                <div class="input-group">
+                    <label>Quntity</label>
+                    <input type="number" id="newQuntity" placeholder="Product Quntity">
+                </div>
+                <button id="Submit">Submit</button>
+            </form>
+            <form id="updateProduct">
+                <h3>Update Any Product</h3>
+                <div class="input-group">
+                    <label>Product ID</label>
+                    <input type="text" id="updateID" required placeholder="Enter Product ID">
+                </div>
+                <div class="input-group">
+                    <label>Title</label>
+                    <input type="text" id="updateTitle" required placeholder="Product Name">
+                </div>
+                <div class="input-group">
+                    <label>Image</label>
+                    <input type="text" id="updateImage" placeholder="Product Image URL">
+                </div>
+                <div class="input-group">
+                    <label>Rating</label>
+                    <input type="number" id="updateRating" placeholder="Product Rating">
+                </div>
+                <div class="input-group">
+                    <label>Price</label>
+                    <input type="number" id="updatePrice" placeholder="Product Price">
+                </div>
+                <div class="input-group">
+                    <label>Quntity</label>
+                    <input type="number" id="updateQuantity" placeholder="Product Quntity">
+                </div>
+                <button id="Submit">Submit</button>
+            </form>
+            <form id="deleteProduct">
+                <h3>Delete Any Product</h3>
+                <div class="input-group">
+                    <label>Product ID</label>
+                    <input type="text" id="deleteID" required placeholder="Enter Product ID">
+                </div>
+                <button id="Submit">Submit</button>
+            </form>
+        </div>
+        <div id="product-container">
+        </div>
+    </div>
+    <div id="pagination">
+        <!-- pagination here -->
+    </div>
 
     <div id="f-main">
         <footer>
@@ -185,7 +274,7 @@
         signup_div.innerHTML = ` <div class="dropdown">
        <a href="#" id="sign-in"><i class="fa fa-user"></i> ${saveToken.name}</a>
        <div class="dropdown-content">
-        <a href="./myorder.html">My Orders</a>
+        <a href="../myorder.html">My Orders</a>
          <a onclick="logout()">Log out</a>
        </div>
      </div>`
@@ -221,7 +310,8 @@
     function logout() {
         // console.log("logout")
         sessionStorage.setItem("token", JSON.stringify({ logout: true }));
-        window.location.reload()
+        alert("Redirecting To Home Page.")
+        window.location.href = "../index.html"
     }
 </script>
 <!-- login / logout logic -->

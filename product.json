@@ -789,7 +789,7 @@
         "rating": 3.1,
         "price": 449.00,
         "img": "https://cdn01.pharmeasy.in/dam/products_otc/V62842/liveasy-essentials-all-in-one-vaporizer-2-1654233309.jpg",
-        "quantity": 199
+        "quantity": 19
     },
     {
         "title": "Bpl Smart Oxy Finger Tip Pulse Black",
@@ -798,7 +798,7 @@
         "rating": 4.1,
         "price": 3060.10,
         "img": "https://cdn01.pharmeasy.in/dam/products_otc/M67325/bpl-smart-oxy-finger-tip-pulse-black-oximeter-black-2-1654234561.jpg",
-        "quantity": 199
+        "quantity": 19
     },
     {
         "title": "Onetouch Select Plus Glucometer",
@@ -807,6 +807,6 @@
         "rating": 4.1,
         "price": 449.00,
         "img": "https://cdn01.pharmeasy.in/dam/products_otc/N37764/onetouch-select-plus-glucometer-test-strip-50s-pack-1-1654234355.jpg?dim=700x0&dpr=1&q=100",
-        "quantity": 199
+        "quantity": 19
     }
 ]

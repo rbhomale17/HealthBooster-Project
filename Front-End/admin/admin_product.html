@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelthBooster -Product Page</title>
+    <link rel="icon" href="./titleLogo.jpg" type="image/icon type">
+    <meta charset="UTF-8">
+    <meta property="og:title" content="HelathBooster.com">
+    <!-- <style>
+        body {
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;
+            margin: auto;
+            height: 200px;
+        }
+
+        #outer {
+            width: 90%;
+            margin: auto;
+            box-sizing: border-box;
+        }
+
+        #main {
+            width: 100%;
+            /* margin: auto; */
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 20px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+
+        #outer {
+            margin-top: 20px;
+        }
+
+        #container .card-list {
+            width: 95%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            width: 100%;
+            height: 420px;
+            margin: auto;
+            padding: 5px;
+            background-color: FFFEFF;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 10px;
+        }
+
+        .card_addCart,
+        .card_addWishlist {
+            width: 40%;
+            margin: 7px;
+            padding: 7px;
+            font-size: 12px;
+            border-radius: 15px;
+            background-color: whitesmoke;
+        }
+
+        #pagination {
+            width: 30%;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+        }
+
+        #pagination>button {
+            margin: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            background-color: #498c4d;
+            color: white;
+            border-radius: 8px;
+            padding: 8px;
+        } 
+    </style>-->
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/product.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <!-- <div id="discount">GET RS 50 OFF ON ORDERS ABOVE RS 100</div> -->
+    <nav class="navbar">
+        <div class="top-nav">
+            <div class="logo">
+                <a href="./admin.html"><img src="./logo.jpg" alt=""></a>
+            </div>
+            <div class="search-bar">
+                <div class="title">SEARCH</div>
+                <input type="search" name="" id="search" placeholder="Search here for products">
+                <div class="search-icon">
+                    <i class="fa fa-search" id="search-btn"></i>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <div id="signup-div">
+                    <a href="#" id="sign-in"><i class="fa fa-user"></i> Sign In / Register</a>
+                </div>
+                <a class="wish" href="#">
+                    <i class="fa-solid fa-bell fa-shake" style="color: #020a17;"> 0</i>Notifications
+                </a>
+            </div>
+        </div>
+        <div class="bottom-nav">
+            <a href="./signup.html">Admin Registration</a>
+            <a href="./admin_product.html">All Products</a>
+            <!-- <a href="./AllOrder.html">All Orders</a> -->
+            <a href="../index.html">Visit Home Page</a>
+        </div>
+    </nav>
+
+    <!-- NAVBAR -->
+    <div id="outer">
+        <div>
+            <fieldset id="main">
+                <div>
+                    <legend>Filter By Product Category</legend>
+                    <div>
+                        <input type="checkbox" id="vital" name="product" value="Vitals" />
+                        <label for="Vitals">Vitals</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="biotin" name="interest" value="Biotin" />
+                        <label for="Biotin">Biotin</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="proteins" name="interest" value="Whey Proteins" />
+                        <label for="Whey Proteins">Whey Proteins</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="fitness" name="interest" value="Fitness" />
+                        <label for="Fitness">Fitness</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="massGainer" name="interest" value="Mass Gainer" />
+                        <label for="Mass Gainer">Mass Gainer</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="instrument" name="interest" value="instrument" />
+                        <label for="instrument">Instrument</label>
+                    </div>
+                </div>
+                <div>
+                    <legend>Filter By Product Brand</legend>
+                    <div>
+                        <input type="checkbox" id="BPI" name="product" value="BPI" />
+                        <label for="BPI">BPI</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Beurer" name="interest" value="Beurer" />
+                        <label for="Beurer">Beurer</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Dr. Morepen" name="interest" value="Dr. Morepen" />
+                        <label for="Dr. Morepen">Dr. Morepen</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="HealthKart" name="interest" value="HealthKart" />
+                        <label for="HealthKart">HealthKart</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="MB Fuel One" name="interest" value="MB Fuel One" />
+                        <label for="MB Fuel One">MB Fuel One</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="MuscleBlaze" name="interest" value="MuscleBlaze" />
+                        <label for="MuscleBlaze">MuscleBlaze</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Onetouch" name="interest" value="Onetouch" />
+                        <label for="Onetouch">Onetouch</label>
+                    </div>
+                </div>
+                <div>
+                    <legend>Filter By Product Rating</legend>
+                    <!-- <div> -->
+                    <!-- <input type="checkbox" id="abovefour" name="product" value="4" /> -->
+                    <!-- <label for="4">.</label> -->
+                    <!-- </div> -->
+                    <select name="" id="rating">
+                        <option value="">Select Rating</option>
+                        <option value="4">Rating Above 4</option>
+                        <option value="3">Rating Above 3</option>
+                        <option value="2">Rating Above 2</option>
+                        <option value="1">Rating Above 1</option>
+                    </select>
+                </div>
+                <div>
+                    <legend>Filter By Product Price</legend>
+                    <!-- <div>
+                        <input type="checkbox" id="abovefour" name="product" value="4" />
+                        <label for="4">.</label> -->
+                    <!-- </div> -->
+                    <select name="" id="price">
+                        <option value="">Select Price</option>
+                        <option value="2000">Price Below ₹ 2000</option>
+                        <option value="1500">Price Below ₹ 1500</option>
+                        <option value="1000">Price Below ₹ 1000</option>
+                        <option value="500">Price Below ₹ 500</option>
+                    </select>
+                </div>
+
+                <div>
+                    <!-- <legend>Sort The Product</legend> -->
+                    <!-- <div> -->
+                    <!-- <input type="checkbox" id="abovefour" name="product" value="4" /> -->
+                    <!-- <label for="4">.</label> -->
+                    <!-- </div> -->
+                    <!-- <select name="" id="sort">
+                        <option value="">Select Sort</option>
+                        <option value="2000">Price Below ₹ 2000</option>
+                        <option value="1500">Price Below ₹ 1500</option>
+                        <option value="1000">Price Below ₹ 1000</option>
+                        <option value="500">Price Below ₹ 500</option>
+                    </select> -->
+                </div>
+                <div>
+                    <!-- <legend>Filter By Product Price</legend> -->
+                    <div>
+                        <!-- <input type="checkbox" id="abovefour" name="product" value="4" /> -->
+                        <!-- <label for="4">.</label> -->
+                    </div>
+                    <!-- <select name="" id="price">
+                        <option value="">Select Price</option>
+                        <option value="2000">Price Below ₹ 2000</option>
+                        <option value="1500">Price Below ₹ 1500</option>
+                        <option value="1000">Price Below ₹ 1000</option>
+                        <option value="500">Price Below ₹ 500</option>
+                    </select> -->
+                </div>
+                <button id="applyfilter">Apply</button>
+                <button id="removefilter">Remove Filter</button>
+            </fieldset>
+            <!-- <script>
+                let lessthan2000 = document.getElementById("lessthan2000");
+                let lessthan1500 = document.getElementById("lessthan1500");
+                let lessthan1000 = document.getElementById("lessthan1000");
+                let lessthan500 = document.getElementById("lessthan500");
+            </script> -->
+        </div>
+
+        <div id="container">
+            <!-- product appende here -->
+        </div>
+        <div id="pagination">
+            <!-- pagination here -->
+        </div>
+    </div>
+
+    <div id="f-main">
+        <footer>
+            <div class="f-cont">
+                <div class="f-row">
+                    <div class="col" id="about">
+                        <h3>About Us</h3>
+                        <p>HelathBooster was established in May 2023. This company started with a few employees but
+                            transitioned
+                            into
+                            a full-fledged online platform within just a few months. By June 2023, HelathBooster
+                            introduced the
+                            certified,
+                            well-known Indian and international brands to its platform, and that is increasing in number
+                            each passing
+                            month.</p>
+                        <div class="s-media">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="col" id="company">
+                        <h3>TOP BRANDS</h3>
+                        <div class="link">
+                            <a href="/">HealthKart</a>
+                            <a href="#">MuscleBlaze</a>
+                            <a href="#">BPI</a>
+                            <a href="#">True Basic</a>
+                            <a href="#">Onetouch</a>
+                            <a href="#">Dr.Morepen</a>
+                            <a href="#">Beurer</a>
+                        </div>
+                    </div>
+                    <div class="col" id="category">
+                        <h3>TOP CATEGORIES</h3>
+                        <div class="link">
+                            <a href="#">Biotin</a>
+                            <a href="#">Fitness</a>
+                            <a href="#">Whey Proteins</a>
+                            <a href="#">Mass Gainer</a>
+                            <a href="#">Vitals</a>
+                            <a href="#">Instrument</a>
+                        </div>
+                    </div>
+                    <div class="col" id="policy">
+                        <h3>POLICIES & INFO</h3>
+                        <div class="link">
+                            <a href="">Privacy Policy</a>
+                            <a href="">SUPPORT</a>
+                            <a href="">For Help, email to care@healthbooster.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- FOOTER -->
+</body>
+
+</html>
+<script src="./scripts/product.js"></script>
+
+<!-- login / logout logic -->
+<style id="logoutStyle">
+    /* sigup/login dropdow css come here after login and remove after logout */
+</style>
+<script>
+    var saveToken = JSON.parse(sessionStorage.getItem("token"));
+    let logoutStyle = document.getElementById("logoutStyle");
+    let signup_div = document.getElementById("signup-div");
+
+    console.log(saveToken, saveToken.length);
+    if (saveToken.logout) {
+        // console.log("hii");
+        signup_div.innerHTML = null;
+        signup_div.innerHTML = `<a href="./signup.html" id="sign-in"><i class="fa fa-user"></i> Sign In / Register</a>`
+    } else {
+        // console.log("234");
+        signup_div.innerHTML = null;
+        signup_div.innerHTML = ` <div class="dropdown">
+       <a href="#" id="sign-in"><i class="fa fa-user"></i> ${saveToken.name}</a>
+       <div class="dropdown-content">
+        <a href="../myorder.html">My Orders</a>
+         <a onclick="logout()">Log out</a>
+       </div>
+     </div>`
+        logoutStyle.append(
+            `.dropdown {
+   display: inline-block;
+   position: relative;
+   background-color: white;
+ }
+ .dropdown-content {
+   display: none;
+   position: absolute;
+   width: 100%;
+   overflow: auto;
+   box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+ }
+ .dropdown:hover .dropdown-content {
+   display: block;
+ }
+ .dropdown-content a {
+   display: block;
+   color: #000000;
+   padding: 5px;
+   text-decoration: none;
+   background-color: rgb(205, 250, 214);
+ }
+ .dropdown-content a:hover {
+   color: #FFFFFF;
+   background-color: #00A4BD;
+ }`
+        )
+    }
+
+    function logout() {
+        console.log("logout")
+        sessionStorage.setItem("token", JSON.stringify({ logout: true }));
+        window.location.reload()
+    }
+</script>
+
+<!-- login / logout logic -->
+
+<!-- data.forEach(element => {
+
+let card = document.createElement("div");
+let title = document.createElement("p");
+let price = document.createElement("p");
+let img = document.createElement("img");
+let quantity = document.createElement("p");
+let category1 = document.createElement("P");
+category1.textContent = element.category;
+let rating1 = document.createElement("P");
+rating1.textContent = element.rating;
+quantity.textContent = element.quantity;
+img.setAttribute("src", element.img);
+price.textContent = element.price;
+title.textContent = element.title;
+
+card.append(img, title, price, quantity, category1, rating1);
+container.append(card);
+}); -->
