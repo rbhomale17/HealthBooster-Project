@@ -239,9 +239,10 @@
     }
 
     function logout() {
-        console.log("logout")
+        // console.log("logout")
         sessionStorage.setItem("token", JSON.stringify({ logout: true }));
-        window.location.reload()
+        alert("Redirecting To Home Page.")
+        window.location.href = "./index.html"
     }
 </script>
 

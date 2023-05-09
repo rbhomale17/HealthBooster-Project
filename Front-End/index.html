@@ -356,12 +356,14 @@
   }
 
   function logout() {
-    console.log("logout")
-    sessionStorage.setItem("token", JSON.stringify({ logout: true }));
-    window.location.reload()
-  }
+        // console.log("logout")
+        sessionStorage.setItem("token", JSON.stringify({ logout: true }));
+        alert("Redirecting To Home Page.")
+        window.location.href = "./index.html"
+    }
 </script>
 
 <!-- login / logout logic -->
 
 </html>
+<script src="../index.js"></script>
