@@ -12,15 +12,6 @@
 
 ####################################################################################
 
-***Technology Stacks***
-
-***Front-End: CSS, HTML, JavaScript***
-
-***Back-End: JavaScript, Node.js, Express JS, MongoDB, Mongoose, npm***
-
-####################################################################################
-
-
 For the Construct Week Project, i have created a clone of an Indian health supplement-buying website called ***HealthKart.com***. 
 A health supplement-buying site helps to find the right supplement according to the consumer's fitness goal. The company is headquartered in Gurgaon, Haryana.
 
@@ -35,6 +26,14 @@ Developed a basic flow for the Front End of the website.
     b. Admin Registration page
 
 Also created a entire **Back-End** of the website.
+
+####################################################################################
+
+***Technology Stacks***
+
+***Front-End: CSS, HTML, JavaScript***
+
+***Back-End: JavaScript, Node.js, Express JS, MongoDB, Mongoose, npm***
 
 ####################################################################################
 
