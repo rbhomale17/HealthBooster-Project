@@ -232,6 +232,7 @@ console.log(id);
             alert(res.msg)
             console.log(res.msg)
             fetchData()
+            console.log("HIIII")
             fetchCartLength();
             fetchWishlistLength();
         }).catch((err)=>{
