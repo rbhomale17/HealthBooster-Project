@@ -20,7 +20,9 @@
 
 ####################################################################################
 
-For the Construct Week Project, i have created a clone of an Indian health supplement-buying website called ***HealthKart.com***. A health supplement-buying site helps to find the right supplement according to the consumer's fitness goal. The company is headquartered in Gurgaon, Haryana.
+
+For the Construct Week Project, i have created a clone of an Indian health supplement-buying website called ***HealthKart.com***. 
+A health supplement-buying site helps to find the right supplement according to the consumer's fitness goal. The company is headquartered in Gurgaon, Haryana.
 
 An Individual project exicuted in 6 days.
 Developed a basic flow for the Front End of the website.
