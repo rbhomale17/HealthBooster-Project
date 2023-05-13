@@ -143,7 +143,7 @@ function getCard(dataId, title, brand, category, rating, price, avatar, quantity
     let cartButton = document.createElement("button");
     cartButton.classList = "card_item";
     cartButton.classList = "card_addCart";
-    cartButton.id = dataId
+    cartButton.setAttribute("data-id", dataId);
 
     cartButton.innerHTML = `<i class="fa-solid fa-cart-shopping fa-bounce"></i> Add To Cart`
     cartButton.addEventListener("click", (e) => {
@@ -158,7 +158,7 @@ function getCard(dataId, title, brand, category, rating, price, avatar, quantity
             "prodID": e.target.id
         };
         console.log(cartObject);
-        console.log(saveToken.token);
+        // console.log(saveToken.token);
         fetch(`https://moral-riddle-2098-project-server.onrender.com/wishlist/delete/${e.target.id}`, {
             method: "DELETE",
             headers: {
