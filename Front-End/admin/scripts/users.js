@@ -304,6 +304,7 @@ function getCard(dataId, title, brand, category, rating, price, avatar, quantity
     let deleteUserId = document.createElement("button");
     deleteUserId.classList = "card_item"
     deleteUserId.classList = "card_delete";
+    deleteUserId.id="Submit"
     deleteUserId.innerText = `Delete`;
     deleteUserId.setAttribute("data-id",dataId);
 

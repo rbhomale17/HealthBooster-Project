@@ -298,7 +298,17 @@ form button {
     display: block;
     margin: 30px auto 10px;
 }
-
+#product-container button {
+    background: #141a34;
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 10px 40px;
+    outline: 0;
+    cursor: pointer;
+    display: block;
+    /* margin: 30px auto 10px; */
+}
 /* <--- Navbar CSS ---> */
 
 
