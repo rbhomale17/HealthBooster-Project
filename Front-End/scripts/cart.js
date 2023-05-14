@@ -13,7 +13,6 @@ if (!saveToken) {
     // console.log(cartStutus);
     cartStutus.innerHTML = null;
     cartStutus.innerHTML = `<h3> Please Log in First</h3>`
-
 }
 
 var wishlistCounter = document.getElementById("wishlistCounter");

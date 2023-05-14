@@ -98,7 +98,7 @@ submit.addEventListener("submit", (e) => {
       value += Math.ceil((res.cart[i].price * res.cart[i].quantity));
       qty += res.cart[i].quantity;
     }
-    console.log(value, qty);
+    // console.log(value, qty);
     cost = value * qty;
 
     let obj = {
