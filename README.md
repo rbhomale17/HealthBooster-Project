@@ -32,7 +32,7 @@ Developed a basic flow for the Front End of the website.
 
     b. Admin Registration page
 
-Also created a entire **Back-End** of the website.
+Also created a entire **Back-End** of the website with help of JavaScript and Node.js modules.
 
 ***
 
