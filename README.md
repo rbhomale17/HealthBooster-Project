@@ -50,7 +50,7 @@ Also created a entire **Back-End** of the website with help of JavaScript and No
 
 ***Project App: Deployed on Netlify.com***
 
-***HealthBooster.com: https://strong-pasca-1a6061.netlify.app/***
+***HealthBooster.com: https://wonderful-faloodeh-0e3d70.netlify.app/***
 
 
 ***
