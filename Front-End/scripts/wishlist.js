@@ -144,8 +144,9 @@ function getCard(dataId, title, brand, category, rating, price, avatar, quantity
     cartButton.classList = "card_item";
     cartButton.classList = "card_addCart";
     cartButton.setAttribute("data-id", dataId);
+    cartButton.id=dataId;
 
-    cartButton.innerHTML = `<i class="fa-solid fa-cart-shopping fa-bounce"></i> Add To Cart`
+    cartButton.innerHTML = `<i data-id=${dataId} class="fa-solid fa-cart-shopping fa-bounce"></i> Add To Cart`
     cartButton.addEventListener("click", (e) => {
         let cartObject = {
             "title": title,
@@ -155,11 +156,11 @@ function getCard(dataId, title, brand, category, rating, price, avatar, quantity
             "price": price,
             "img": avatar,
             "quantity": 1,
-            "prodID": e.target.id
+            "prodID": e.target.dataset.id
         };
         console.log(cartObject);
         // console.log(saveToken.token);
-        fetch(`https://moral-riddle-2098-project-server.onrender.com/wishlist/delete/${e.target.id}`, {
+        fetch(`https://moral-riddle-2098-project-server.onrender.com/wishlist/delete/${e.target.dataset.id}`, {
             method: "DELETE",
             headers: {
                 "authorization": `Bearer ${saveToken.token}`
@@ -184,10 +185,10 @@ function getCard(dataId, title, brand, category, rating, price, avatar, quantity
     let removeButton = document.createElement("button");
     removeButton.classList = "card_item";
     removeButton.classList = "card_addWishlist";
-    removeButton.id = dataId
+    removeButton.setAttribute("data-id",dataId)
     removeButton.innerHTML = `Remove`
     removeButton.addEventListener("click", (e) => {
-        fetch(`https://moral-riddle-2098-project-server.onrender.com/wishlist/delete/${e.target.id}`, {
+        fetch(`https://moral-riddle-2098-project-server.onrender.com/wishlist/delete/${e.target.dataset.id}`, {
             method: "DELETE",
             headers: {
                 "authorization": `Bearer ${saveToken.token}`
