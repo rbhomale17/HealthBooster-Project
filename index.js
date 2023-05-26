@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
     student_code: "fw25_348",
     course: "Full Stack Web Developer",
     tech_stacks: "Node.js, Express JS, MongoDB, Mongoose, npm packages, JavaScript, HTML, CSS",
+    My_Portfolio: `https://rbhomale17.github.io/`,
     Github_Profile: `https://github.com/rbhomale17`,
     LinkedIn: `https://www.linkedin.com/in/rushikesh-bhomale-aa29a3158/`,
     SomeUsefullRoutes: {
